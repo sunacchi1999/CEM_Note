@@ -26,8 +26,11 @@
 \usepackage{extarrows}
 \usepackage{subcaption}
 \usepackage{esint}
+\usepackage{mathrsfs}
 \usepackage{ctex}
 \usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
 
 \usetikzlibrary{positioning}
 \tikzset{>=stealth}
@@ -65,6 +68,18 @@
 
 
 \begin{document}
+
+\newcommand\tbbint{{-\mkern -16mu\int}}
+\newcommand\tbint{{\mathchar '26\mkern -14mu\int}}
+\newcommand\dbbint{{-\mkern -19mu\int}}
+\newcommand\dbint{{\mathchar '26\mkern -18mu\int}}
+\newcommand\bint{
+{\mathchoice{\dbint}{\tbint}{\tbint}{\tbint}}
+}
+\newcommand\bbint{
+{\mathchoice{\dbbint}{\tbbint}{\tbbint}{\tbbint}}
+}
+
 \setlength{\baselineskip}{15pt}
 \setlength{\abovedisplayskip}{1ex}
 \setlength{\belowdisplayskip}{1ex}
@@ -625,7 +640,7 @@ $\varrho _{e,total}$表示体积$V$内的总电荷密度$(C/m^3)$。则\textbf{\
     p_s=p_e+p_d+j2w(w_m-w_e)
 \end{align}
 称为复相量的坡印廷定理。
-\section{自由空间中的电磁辐射}
+\section{\textsf{自由空间中的电磁辐射}}
 \subsection{标量电位、矢量磁位}
 由麦克斯韦方程组的复数形式得，在静态场中，$w \to 0$，麦克斯韦方程组重写为
 \begin{align}
@@ -1168,7 +1183,7 @@ $\mathbf{E}_e$、$\mathbf{H}_e$满足
     \psi_y=(\sin\theta\cos\phi-\sin\theta_{S}\sin\phi_{S})k\Delta_y
 \end{align}
 最大辐射方向为$\psi_x=2m\pi$和$\psi_y=2n\pi$，$m,n=0,1,2,\cdots$，对应$m=n=0$的辐射方向为$(\theta_S,\phi_S)$和$(\pi-\theta_S,\phi_S)$。为了确保天线阵只有两个最大的方向，需满足$\Delta_x<\lambda$和$\Delta_y<\lambda$。
-\section{电磁定理和原理}
+\section{\textsf{电磁定理和原理}}
 \subsection{唯一性定理}
 \begin{figure}[ht]
     \centering
@@ -1993,7 +2008,7 @@ $V_S$代表源所占空间。式\ref{eq:eq247}、式\ref{eq:eq248}称为\textbf{
     \label{eq:eq271}
     \mathbf{E}_a&=-\eta\mathbf{H}_d^{sc}
 \end{align}
-\section{传输线和平面波}
+\section{\textsf{传输线和平面波}}
 \subsection{传输线理论}
 \subsubsection{传输线方程及其解}
 考虑有两根平行导体构成的传输线，其单位长度的电阻、电导、电感、电容分别为$R$、$G$、$L$、$C$，如图\ref{fig:fig36}表示长度为$\Delta z$的传输线的等效电路。
@@ -3389,9 +3404,10 @@ $\epsilon$和$\epsilon_z$都对场产生了影响，影响程度取决于波的�
     v_{p-}=\frac{w}{\beta_-}=\frac{1}{\sqrt{\mu\epsilon}-\chi}
 \end{align}
 任意平面波都可以分解成左旋圆极化波和右旋圆极化波的叠加，因此进入手征媒质后，两种圆极化分量将以不同的相速传播，因此也会发生法拉第旋转和双折射。回旋媒质是非互易的，而手征媒质是互易的。
-\section{波导}
+\section{\textsf{波导}}
 \newpage
-\section{有限差分法}
+\section{\textsf{有限差分法}}
+\label{sec:sec6}
 \subsection{有限差分公式}
 有限差分法的基本思想是对偏微分方程中的微分算子进行近似。从求导定义出发，如图\ref{fig:fig48}所示。
 \begin{figure}[ht]
@@ -3847,9 +3863,9 @@ $\epsilon$和$\epsilon_z$都对场产生了影响，影响程度取决于波的�
 \begin{align}
     \label{eq:eq594}
     \frac{\partial \varphi}{\partial x}=-jk_x\varphi&=-j\sqrt{k^2-k_y^2}\varphi=-jk\sqrt{1-\left(\frac{k_y}{k}\right)^2}\varphi \nonumber \\
-    &\approx-jk\left[1-\frac{1}{2}\left(\frac{k_y}{k}\right)^2\right]\varphi=-jk\varphi+\frac{j}{2k}k_y^2\varphi=-jk\varphi+\frac{j}{2k}\frac{\partial^2\varphi}{\partial y^2}
+    &\approx-jk\left[1-\frac{1}{2}\left(\frac{k_y}{k}\right)^2\right]\varphi=-jk\varphi+\frac{j}{2k}k_y^2\varphi=-jk\varphi-\frac{j}{2k}\frac{\partial^2\varphi}{\partial y^2}
 \end{align}
-上式推导过程中利用了平方根的泰勒展开，保留前两项，以及$\frac{\partial^2\varphi}{\partial y^2}=k_y^2\varphi$，称为\textbf{\color{blue}{二阶吸收边界条件}}。其对应的反射系数为：
+上式推导过程中利用了平方根的泰勒展开，保留前两项，以及$\frac{\partial^2\varphi}{\partial y^2}=-k_y^2\varphi$，称为\textbf{\color{blue}{二阶吸收边界条件}}。其对应的反射系数为：
 \begin{align}
     \label{eq:eq595}
     R=\frac{\cos\theta+\frac{1}{2}\sin^2\theta-1}{\cos\theta-\frac{1}{2}\sin^2\theta+1}
@@ -4355,7 +4371,7 @@ $s_x$、$s_y$、$s_z$是常数，或分别为$x$、$y$、$z$的函数。考虑�
 \end{align}
 上述方法只需要知道惠更斯面的入射电场，以及距离惠更斯面半网格处的入射磁场。理论上可以只在总场区激励所需的入射场，而在散射区的入射场为零。然而由于设置色散误差，总场区的入射场将会有微小的相位误差，且会有少量的入射场泄漏到散射场区。对于散射场的计算，激励通过导电表面的边界条件引入；对于总场的计算，入射场由惠更斯面激励。
 \subsection{近远场变换}
-当求解远场时，需要从近场出发计算远场，引入一个封闭面$S_{NTF}$，包围整个物体，并将其放置在散射区，如图如图\ref{fig:fig53}所示。封闭面上的等效面电流和等效面磁流分别为$\vec{\mathcal{J}}_S^{eq}=\hat{n}\times\vec{\mathcal{H}}$、$\vec{\mathcal{M}}_S^{eq}=-\hat{n}\times\vec{\mathcal{E}}$。\\
+当求解远场时，需要从近场出发计算远场，引入一个封闭面$S_{NTF}$，包围整个物体，并将其放置在散射区，如图\ref{fig:fig53}所示。封闭面上的等效面电流和等效面磁流分别为$\vec{\mathcal{J}}_S^{eq}=\hat{n}\times\vec{\mathcal{H}}$、$\vec{\mathcal{M}}_S^{eq}=-\hat{n}\times\vec{\mathcal{E}}$。\\
 （1）在频域计算远场：首先计算整个时间段内的$\vec{\mathcal{J}}_S^{eq}$、$\vec{\mathcal{M}}_S^{eq}$，然后变换到频域，由式\ref{eq:eq119}、式\ref{eq:eq120}、式\ref{eq:eq117}、式\ref{eq:eq118}可得：
 \begin{align}
     \label{eq:eq695}
@@ -4383,8 +4399,1371 @@ $s_x$、$s_y$、$s_z$是常数，或分别为$x$、$y$、$z$的函数。考虑�
     \vec{\mathcal{N}}(\hat{r},\tau)&=\iint_{S_{NTF}}\vec{\mathcal{M}}_S^{eq}\left(\vec{r}',\tau+\frac{\vec{r}'\cdot\hat{r}}{c_0}\right)dS'
 \end{align}
 频域近远场变换适合只计算少数频点上的对角度分辨率要求较高的远场方向图，时域近远场变换适合计算少数观察角的宽频带远场方向图。
-\subsection{三种开源FDTD代码}
-\subsubsection{Meep}
+\section{\textsf{有限元法}}
+\subsection{概述}
+\subsubsection{加权残差法}
+考虑偏微分方程：
+\begin{align}
+    \label{eq:eq700}
+    \vec{\mathcal{L}}\varphi=f
+\end{align}
+其中$\vec{\mathcal{L}}$是微分算子，$\varphi$是待求未知解，$f$是源函数。将$\varphi$使用基函数$v_j(j=1,2,\cdots,N)$展开为
+\begin{align}
+    \label{eq:eq701}
+    \varphi=\sum_{j=1}^{N}c_jv_j
+\end{align}
+将式\ref{eq:eq701}代入式\ref{eq:eq700}，等式两边同时乘以加权函数$w_i$，并在整个求解区域$\Omega$内积分，得
+\begin{align}
+    \label{eq:eq702}
+    \int_{\Omega}w_i\vec{\mathcal{L}}\left(\sum_{j=1}^{N}c_jv_j\right)d\Omega=\int_{\Omega}w_ifd\Omega
+\end{align}
+通过在满足边界条件的要求下求解上式定义的代数方程组，即可得到$c_j$。若令$w_i=v_i$(\textbf{\color{blue}{伽辽金法}})，代入上式，可得
+\begin{align}
+    \label{eq:eq703}
+    \sum_{j=1}^{N}S_{ij}c_j=b_i\qquad i=1,2,\cdots,N
+\end{align}
+其中
+\begin{align}
+    \label{eq:eq704}
+    S_{ij}&=\int_{\Omega}v_i\left(\vec{\mathcal{L}}v_j\right)d\Omega \\
+    \label{eq:eq705}
+    b_i&=\int_{\Omega}v_ifd\Omega
+\end{align}
+对于自共轭问题，有$S_{ij}=S_{ji}$，因此式\ref{eq:eq703}对应的线性系统的系数矩阵是对称的。
+\subsubsection{一维算例}
+考虑一个亥姆霍兹方程的一维边值问题：
+\begin{align}
+    \label{eq:eq706}
+    \frac{d^2\varphi(x)}{dx^2}+k^2\varphi(x)=f(x)\qquad 0<x<L
+\end{align}
+其边界条件为
+\begin{align}
+    \label{eq:eq707}
+    \left.\varphi\right|_{x=0}&=p \\
+    \label{eq:eq710}
+    \left[\frac{d\varphi}{dx}+\gamma\varphi\right]_{x=L}&=q
+\end{align}
+首先将求解区域$(0,L)$划分为多个小子域(有限单元)，即短线段，线段之间的连接处称为节点，如图\ref{fig:fig55}所示。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{一维区域划分为线性单元.PNG}
+    \caption{一维区域划分为线性单元}
+    \label{fig:fig55}
+\end{figure}
+\\
+令单元足够小，使得每个单元上的未知解可以通过对此单元两端节点上的$\varphi$值进行线性插值得到，此时未知解表示为：
+\begin{align}
+    \label{eq:eq708}
+    \varphi(x)&=\sum_{j=0}^{N}\varphi_jN_j(x) \nonumber \\
+              &=\sum_{j=1}^{N}\varphi_jN_j(x)+\varphi_0N_0(x)=\sum_{j=1}^{N}\varphi_jN_j(x)+pN_0(x)
+\end{align}
+其中$\varphi_j$是未知量$\varphi$在第$j$个单元与第$(j+1)$个单元之间的节点上的值，$N_j(x)$为相应的基函数。$N_j(x)$是一个三角形函数，在第$j$个节点处的值为1，在相邻的两个节点处线性下降至零，在第一个和最后一个节点处，$N_j(x)$仅在一个单元上有非零值，如图\ref{fig:fig56}所示。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{一维线性基函数.PNG}
+    \caption{一维线性基函数}
+    \label{fig:fig56}
+\end{figure}
+\par
+应用伽辽金法，将式\ref{eq:eq706}两边乘以$N_i(x)$，$i=1,2,\cdots,N$，并在$(0,L)$上进行积分，可得
+\begin{align}
+    \label{eq:eq709}
+    \int_{0}^LN_i(x)\left[\frac{d^2\varphi(x)}{dx^2}+k^2\varphi(x)\right]dx=\int_{0}^LN_i(x)f(x)dx
+\end{align}
+则
+通过分部积分，以及式\ref{eq:eq707}、式\ref{eq:eq710}所示的边界条件，并代入式\ref{eq:eq708}，有
+\begin{align}
+    \label{eq:eq738}
+    0=&\int_{0}^LN_i(x)\left[\frac{d^2\varphi(x)}{dx^2}+k^2\varphi(x)\right]dx-\int_{0}^LN_i(x)f(x)dx \nonumber \\
+     =&\left.N_i(x)\frac{d\varphi(x)}{dx}\right|^L_0-\int^L_0\frac{dN_i(x)}{dx}\frac{d\varphi(x)}{dx}dx+\int_0^Lk^2N_i(x)\varphi(x)dx-\int_0^LN_i(x)f(x)dx \nonumber \\
+     =&N_i(L)\left.\frac{d}{dx}\left[\sum_{j=1}^{N}\varphi_jN_j(x)+pN_0(x)\right]\right|_{x=L}-N_i(0)\left.\frac{d}{dx}\left[\sum_{j=1}^{N}\varphi_jN_j(x)+pN_0(x)\right]\right|_{x=0} \nonumber \\
+      &\qquad-\int_0^L\frac{dN_i(x)}{dx}\sum_{j=1}^{N}\varphi_j\frac{N_j(x)}{x}dx-\int_0^Lp\frac{dN_i(x)}{dx}\frac{dN_0(x)}{dx}dx \nonumber \\
+      &\qquad+\int_0^Lk^2N_i(x)\sum_{j=1}^{N}\varphi_jN_j(x)dx+\int_0^Lk^2pN_i(x)N_0(x)dx-\int_0^LN_i(x)f(x)dx \nonumber \\
+     =&\delta_{iN}\left[q-\gamma\sum_{j=1}^{N}\varphi_j\delta_{jN}\right]-\sum_{j=1}^{N}\int_0^L\frac{dN_i(x)}{dx}\frac{N_j(x)}{x}dx\varphi_j+\sum_{j=1}^{N}\int_0^Lk^2N_i(x)N_j(x)dx\varphi_j \nonumber \\
+      &\qquad-\int_0^Lp\frac{dN_i(x)}{dx}\frac{dN_0(x)}{dx}dx+\int_0^Lk^2pN_i(x)N_0(x)dx-\int_0^LN_i(x)f(x)dx
+\end{align}
+其中当$i=N$时，$\delta_{iN}=1$，当$i\neq N$时，$\delta_{iN}=0$，$\delta_{jN}$的定义与之类似。令
+\begin{align}
+    \label{eq:eq712}
+    K_{ij}&=\int^L_0\left[\frac{dN_i(x)}{dx}\frac{dN_j(x)}{dx}-k^2N_i(x)N_j(x)\right]dx+\gamma\delta_{iN}\delta_{jN} \\
+    \label{eq:eq713}
+    b_i&=-\int_{0}^LN_i(x)f(x)dx-p\int^L_0\left[\frac{dN_i(x)}{dx}\frac{dN_0(x)}{dx}-k^2N_i(x)N_0(x)\right]dx+q\delta_{iN}
+\end{align}
+则有
+\begin{align}
+    \label{eq:eq711}
+    \sum_{j=1}^{N}K_{ij}\varphi_j=b_i\qquad i=1,2,\cdots,N
+\end{align}
+由于只有当$j=i\pm 1$时，$N_i(x)$和$N_j(x)$才会重叠，因此$K_{ij}$中只有$K_{ii}$、$K_{i+1,i}$、$K_{i,i+1}$非零，故矩阵$[K]$稀疏且对称。令$l^{(i)}=x_{i+1}-x_i$为第$i$个单元的长度，假设源函数$f(x)$在每个单元中可以近似为常数，用$f^{(i)}$表示源函数$f(x)$在第$i$个单元的平均值，则有
+\begin{align}
+    \label{eq:eq714}
+    K_{ii}&=\left[\frac{1}{l^{(i)}}+\frac{1}{l^{(i+1)}}\right]-k^2\left[\frac{l^{(i)}}{3}+\frac{l^{(i+1)}}{3}\right]\qquad i=1,2,\cdots,N-1 \\
+    \label{eq:eq715}
+    K_{i+1,i}&=K_{i,i+1}=-\frac{1}{l^{(i)}}-k^2\frac{l^{(i)}}{6}\qquad i=1,2,\cdots,N-1 \\
+    \label{eq:eq716}
+    K_{NN}&=\frac{1}{l^{(M)}}-k^2\frac{l^{(M)}}{3}+\gamma \\
+    \label{eq:eq717}
+    b_1&=-f^{(1)}\frac{l^{(1)}}{2}-f^{(2)}\frac{l^{(2)}}{2}+\left(\frac{1}{l^{(1)}}+k^2\frac{l^{(1)}}{6}\right)p \\
+    \label{eq:eq718}
+    b_i&=-f^{(i)}\frac{l^{(i)}}{2}-f^{(i+1)}\frac{l^{(i+1)}}{2}+\frac{1}{l^{(1)}}\qquad i=1,2,\cdots,N-1 \\
+    \label{eq:eq719}
+    b_N&=-f^{(M)}\frac{l^{(M)}}{2}+q
+\end{align}
+求解式\ref{eq:eq711}定义的线性方程组，即可得到$\varphi_j(j=1,2,\cdots,N)$的解，从而根据式\ref{eq:eq708}得到求解域中任意一处的解。\par
+由于数值离散化，模拟波的波束将与精确值略有不同，这将导致解在相位上有误差，且误差随着波的传播累积。考虑一个均匀离散网格，$l^{(i)}=h$，假设一平面波$\varphi(x)=\varphi_0e^{-jkx}$，其有限元解的形式为$\varphi_i(x)=\varphi_0e^{-j\tilde{k}ih}$，其中$\tilde{k}$为数值波数，根据式\ref{eq:eq708}及式\ref{eq:eq714}至式\ref{eq:eq719}，有
+\begin{align}
+    \label{eq:eq720}
+    &K_{i,i-1}\varphi_{i-1}+K_{ii}\varphi_{i}+K_{i,i+1}\varphi_{i+1} \nonumber \\
+    =&-\left(\frac{1}{h}+k^2\frac{h}{6}\right)\varphi_{i-1}+2\left(\frac{1}{h}-k^2\frac{h}{3}\right)\varphi_{i}-\left(\frac{1}{h}+k^2\frac{h}{6}\right)\varphi_{i+1} \nonumber \\
+    =&b_i=0
+\end{align}
+解得数值波数为
+\begin{align}
+    \label{eq:eq721}
+    \tilde{k}=\frac{1}{h}\arccos\left[\frac{6-2(kh)^2}{6+(kh)^2}\right]
+\end{align}
+将余弦函数用泰勒展开式的前两项近似，得
+\begin{align}
+    \label{eq:eq722}
+    \frac{\tilde{k}-k}{k}\approx\frac{1}{12}(kh)^2=\frac{\pi^2}{3}\left(\frac{h}{\lambda}\right)^2
+\end{align}
+上式表明数值相位误差随单元的减小呈二次下降。若式\ref{eq:eq708}中采用二阶基函数对解函数进行展开，则得到的数值解的误差将与$(\frac{h}{\lambda})^4$成正比。因此，相比于减小单元尺寸，增加基函数阶数能更有效地减少相位误差，使用$p$阶基函数，相位误差与$(\frac{h}{\lambda})^{2p}$成正比。
+\subsection{标量场的有限元分析}
+考虑求解区域$\Omega$中由密度为$\varrho_e$的电荷产生的静电势$\varphi$。由式\ref{eq:eq58}所示的泊松方程知，$\varphi$在$\Omega$中的约束方程为
+\begin{align}
+    \label{eq:eq723}
+    -\nabla\cdot(\epsilon\nabla\varphi)=\varrho_e
+\end{align}
+假设其边界条件满足：
+\begin{align}
+    \label{eq:eq724}
+    \varphi&=\varphi_D \qquad on~\Gamma_D \\
+    \label{eq:eq725}
+    \hat{n}\cdot(\epsilon\nabla\varphi)&=\kappa_N \qquad on~\Gamma_N
+\end{align}
+其中$\Gamma_D$是满足Dirichlet边界条件的边界，$\Gamma_N$是满足Neumann边界条件的边界，二者共同构成区域$\Omega$的边界，记为$\Gamma$。将区域$\Omega$划分为三角形单元(二维)或四面体单元(三维)，如图\ref{fig:fig57}所示。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{二维和三维有限元网络.PNG}
+    \caption{二维和三维有限元网络}
+    \label{fig:fig57}
+\end{figure}
+\\
+此时每个单元中的电势可以通过对单元内一组离散点处的电势值进行插值近似得到，如图\ref{fig:fig58}所示，
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.2\textwidth]{线性三角形单元.PNG}
+    \caption{线性三角形单元}
+    \label{fig:fig58}
+\end{figure}
+\\
+三角形单元$e$中的电势近似为
+\begin{align}
+    \label{eq:eq726}
+    \varphi^e(x,y)=a+bx+cy
+\end{align}
+将上式应用在其三个节点上可得
+\begin{align}
+    \label{eq:eq727}
+    \varphi_1^e(x,y)&=a+bx_1^e+cy_1^e \\
+    \label{eq:eq728}
+    \varphi_2^e(x,y)&=a+bx_2^e+cy_2^e \\
+    \label{eq:eq729}
+    \varphi_3^e(x,y)&=a+bx_3^e+cy_3^e
+\end{align}
+其中$(x_l^e,y_l^e)$表示单元$e$中节点$l$的坐标，$\varphi_l^e$为该点的电势值。根据式\ref{eq:eq727}至式\ref{eq:eq729}，解得$a$、$b$、$c$，代入式\ref{eq:eq726}，得
+\begin{align}
+    \label{eq:eq730}
+    \varphi^e(x,y)=N_1^e(x,y)\varphi_1^2+N_2^e(x,y)\varphi_2^2+N_3^e(x,y)\varphi_3^2
+\end{align}
+式中$N_l^e(x,y)(l=1,2,3)$称为\textbf{\color{blue}{插值函数}}，表示为
+\begin{align}
+    \label{eq:eq731}
+    N_l^e(x,y)=\frac{1}{2\Delta^e}(a_l^e+b_l^ex+c_l^ey)
+\end{align}
+其中
+\begin{align}
+    \label{eq:eq732}
+    a_1^e&=x_2^ey_3^e-x_3^ey_2^e\qquad b_1^e=y_2^e-y_3^e\qquad c_1^e=x_3^e-_2^e \nonumber \\
+    a_2^e&=x_3^ey_1^e-x_1^ey_3^e\qquad b_2^e=y_3^e-y_1^e\qquad c_2^e=x_1^e-_3^e \\
+    a_3^e&=x_1^ey_2^e-x_2^ey_1^e\qquad b_3^e=y_1^e-y_2^e\qquad c_3^e=x_2^e-_1^e \nonumber
+\end{align}
+及
+\begin{align}
+    \label{eq:eq733}
+    \Delta^e=\frac{1}{2}(b_1^ec_2^e-b_2^ec_1^e)=area~of~element~e
+\end{align}
+因此，$N_l^e(x,y)$由三个节点的坐标完全确定，可以证明
+\begin{align}
+    \label{eq:eq734}
+    N_l^e(x_k^e,y_k^e)=
+    \left\{
+    \begin{array}{lr}
+        1,&l=k \\
+        0,&l\neq k
+    \end{array}
+    \right.
+\end{align}
+如图\ref{fig:fig59}所示，
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{线性三角形单元的插值(基)函数.PNG}
+    \caption{线性三角形单元的插值(基)函数}
+    \label{fig:fig59}
+\end{figure}
+\\
+上述特征保证了插值电势在两个单元之间的边界两侧连续。类比式\ref{eq:eq708}，每个单元的电势值由节点处的值插值求得，以插值函数作为基函数，根据边界条件\ref{eq:eq724}，将整个区域中的电势表示为
+\begin{align}
+    \label{eq:eq735}
+    \varphi=\sum_{j=1}^{N}N_j\varphi_j+\sum_{j=1}^{N_D}N_j^D\varphi_j^D
+\end{align}
+其中$N$为电势值未知的节点总数，$N_D$为边界$\Gamma_D$上的节点数，$\varphi_j$是节点$j$处的电势，$N_j$为相应的基函数，$\varphi_j^D$和$N_j^D$分别是边界$\Gamma_D$上的节点及其相应的基函数。\par
+使用加权残差法求解$\varphi_j$，根据式\ref{eq:eq702}、式\ref{eq:eq723}可得
+\begin{align}
+    \label{eq:eq736}
+    -\int_{\Omega}w_i[\nabla\cdot(\epsilon\nabla\varphi)]d\Omega=\int_{\Omega}w_i\varrho_ed\Omega
+\end{align}
+根据矢量恒等式$w_i[\nabla\cdot(\epsilon\nabla\varphi)]=\nabla\cdot(w_i\epsilon\nabla\varphi)-\epsilon\nabla\varphi\cdot\nabla w_i$、高斯定理$\int_{\Omega}\nabla\cdot fd\Omega=\oint_{\Gamma}\hat{n}\cdot fd\Gamma$，以及边界条件\ref{eq:eq725}可得
+\begin{align}
+    \label{eq:eq737}
+    \int_{\Omega}\epsilon\nabla\varphi\cdot\nabla w_id\Omega=\int_{\Omega}w_i\varrho_ed\Omega+\int_{\Gamma_D}\hat{n}\cdot(\epsilon\nabla\varphi)w_id\Gamma+\int_{\Gamma_N}\kappa_Nw_id\Gamma
+\end{align}
+上式称为由式\ref{eq:eq723}、式\ref{eq:eq724}、式\ref{eq:eq725}定义的边值问题的\textbf{\color{blue}{弱式表达式}}，对应的解称为\textbf{\color{blue}{弱解}}，此解在加权平均意义上满足式\ref{eq:eq723}。\par
+将式\ref{eq:eq735}代入式\ref{eq:eq737}，且使用伽辽金法，令$w_i=N_i$，$i=1,2,\cdots,N$，由于$N_i$在$\Gamma_D$上为0，故式\ref{eq:eq737}中$\Gamma_D$上的积分项为0。令
+\begin{align}
+    \label{eq:eq739}
+    K_{ij}&=\int_{\Omega}\epsilon\nabla N_i\cdot\nabla N_jd\Omega \\
+    b_i&=\int_{\Omega}\varrho_eN_id\Omega+\int_{\kappa_N}N_id\Gamma-\sum_{j=1}^{N_D}\varphi_j^D\int_{\Omega}\nabla N_i\cdot\nabla N_j^Dd\Omega
+\end{align}
+则可将式\ref{eq:eq737}表示为
+\begin{align}
+    \label{eq:eq762}
+    \sum_{j=1}^{N}K_{ij}\varphi_j=b_i\qquad i=1,2,\cdots,N
+\end{align}
+紧凑写为
+\begin{align}
+    \label{eq:eq740}
+    [K]\{\varphi\}=\{b\}
+\end{align}
+通过求解上述方程，可以得到所有节点处的电势值，其他位置的电势值可以通过式\ref{eq:eq735}插值得到。只有当$i$和$j$属于同一个单元时，$N_i$和$N_j$才会重叠，因此无论矩阵$[K]$的维度有多大，每一行都只有几个非零元素，存储$[K]$的需求正比于$O(N)$，可以使用专门针对稀疏矩阵开发的稀疏求解算法求解。因此有限元法非常适合需要处理大量未知量的电大尺寸。\par
+由于$N_i$、$N_j$的表达式很难得到，将式\ref{eq:eq739}重写为
+\begin{align}
+    \label{eq:eq741}
+    K_{ij}&=\sum^{M}_{e=1}\int_{\Omega^e}\epsilon\nabla N_i\cdot\nabla N_jd\Omega
+\end{align}
+逐个计算每个单元对矩阵$[K]$的贡献。式中，$\Omega^e$表示单元$e$的区域，$M$为区域$\Omega$中单元的总数。对每个有限元网格定义一个连接阵列，描述单元序号与节点序号之间的关系，对于三角形网格，定义为$n(3,e)$，对于四边形网格，定义为$n(4,e)$，其中$e=1,2,\cdot,M$，$n(k,e)$的值为单元$e$中第$k$个节点的全局节点编号。连接阵列的排序不唯一，但为了保证式\ref{eq:eq733}计算的面积为正，节点需要按照逆时针方向编号，这样，不同的编号方法不会对最终结算结果产生影响。如图\ref{fig:fig60}以及表\ref{tab:tab3}所示。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{单元和节点被编号的有限元网格.PNG}
+    \caption{单元和节点被编号的有限元网格}
+    \label{fig:fig60}
+\end{figure}
+\begin{table}[!ht]
+    \centering
+    \caption{三角形网格中单元与节点的连接阵列}
+    \label{tab:tab3}
+    \begin{tabular}{cccc}
+        \toprule
+        $e$ & $n(1,e)$ & $n(2,e)$ & $n(3,e)$ \\
+        \midrule
+        1 & 1 & 4 & 3 \\
+        2 & 4 & 7 & 3 \\
+        3 & 3 & 7 & 6 \\
+        4 & 7 & 9 & 6 \\
+        5 & 2 & 4 & 1 \\
+        6 & 2 & 5 & 4 \\
+        7 & 5 & 7 & 4 \\
+        8 & 5 & 8 & 7 \\
+        9 & 7 & 8 & 9 \\
+        \bottomrule
+     \end{tabular}
+\end{table}
+\\
+假设$i=n(l,e)$，$j=n(k,e)$，则式\ref{eq:eq741}写成
+\begin{align}
+    \label{eq:eq742}
+    K_{ij}&=\sum^{M}_{e=1}\int_{\Omega^e}\epsilon\nabla N_i^e\cdot\nabla N_j^ed\Omega
+\end{align}
+其中$N_i^e$、$N_j^e$是对单元$e$定义的插值函数，对于三角形单元，由式\ref{eq:eq731}给出。\par
+由于只有与节点$i$、$j$相连的单元才对$K_{ij}$有贡献，因此只需对逐个单元计算：
+\begin{align}
+    \label{eq:eq743}
+    K_{lk}^e&=\int_{\Omega^e}\epsilon\nabla N_i^e\cdot\nabla N_j^ed\Omega
+\end{align}
+对于三角形单元，$l,k=1,2,3$，对于四面体单元，$l,k=1,2,3,4$。$i$、$j$的值由$i=n(l,e)$、$j=n(k,e)$给出($i$、$j$中任何一个或两者均在$\Omega_D$上的情况除外)。\par
+式\ref{eq:eq731}中的积分可以通过解析方法计算，对于三角形单元上的积分，常用公式为
+\begin{align}
+    \label{eq:eq744}
+    \iint_{\Delta^e}(N_1^e)^l(N_2^e)^m(N_3^e)^nd\Omega=\frac{l!m!n!}{(l+m+n+2)!}2\Delta^e
+\end{align}
+对于四面体单元上的积分，常用公式为
+\begin{align}
+    \label{eq:eq745}
+    \iiint_{V^e}(N_1^e)^l(N_2^e)^m(N_3^e)^n(N_4^e)^pd\Omega=\frac{l!m!n!p!}{(l+m+n+p+3)!}6V^e
+\end{align}
+其中$V^e$是四面体单元的体积。\par
+若三角形单元$e$中的介电常数是常数或可以近似成常数，记为$\epsilon^e$，则根据式\ref{eq:eq744}，有
+\begin{align}
+    \label{eq:eq765}
+    K_{lk}^e=\frac{\epsilon^e}{4\nabla^e}\left(b_l^eb_k^e+c_l^ec_k^e\right)
+\end{align}
+\subsection{矢量场的有限元分析}
+考虑区域$\Omega$中，介电常数为$\epsilon$、磁导率为$\mu$，求解由电流密度$mathbf{J}_{imp}$产生的电场强度$mathbf{E}$。从麦克斯韦方程组出发：
+\begin{align}
+    \label{eq:eq746}
+    \nabla \times \mathbf{E}&=-jw\mu\mathbf{H} \\
+    \label{eq:eq747}
+    \nabla \times \mathbf{H}&=jw\epsilon\mathbf{E}+\mathbf{J}_{imp}
+\end{align}
+消去式\ref{eq:eq746}、式\ref{eq:eq747}中的$\mathbf{H}$，可得关于$\mathbf{E}$的矢量波动方程：
+\begin{align}
+    \label{eq:eq750}
+    \nabla\times\left(\frac{1}{\mu_r}\nabla\times\mathbf{E}\right)-k_0^2\epsilon_r\mathbf{E}=-jk_0Z_0\mathbf{J}_{imp} \qquad on~\Omega
+\end{align}
+式中，$\epsilon_r$和$\mu_r$分别为相对介电常数和相对磁导率，$k_0=w\sqrt{\mu_0\epsilon_0}$和$Z_0=\sqrt{\mu_0/\epsilon_0}$分别为自由空间中的波数和本征阻抗。\par
+典型的电场边界条件有理想导体表面的齐次Dirichlet条件和阻抗表面的混合边界条件。假设此问题中的边界条件为
+\begin{align}
+    \label{eq:eq751}
+    \hat{n}\times\mathbf{E}&=\mathbf{P}_D \qquad on~\Gamma_D \\
+    \label{eq:eq752}
+    \hat{n}\times\left(\frac{1}{\mu_r}\nabla\times\mathbf{E}\right)+\frac{jk_0}{\eta_r}\hat{n}\times\left(\hat{n}\times\mathbf{E}\right)&=\mathbf{K}_N \qquad on~\Gamma_N
+\end{align}
+式中，$\mathbf{P}_D$为$\Gamma_D$上的切向电场值，$\eta_r$为$\Gamma_N$上的归一化表面阻抗，$\mathbf{K}_N$为已知函数，表示边界$\Gamma_N$上的边界源。\par
+使用加权残差法，可得
+\begin{align}
+    \label{eq:eq753}
+    \int_{\Omega}\mathbf{W}_i\cdot\left[\nabla\times\left(\frac{1}{\mu_r}\nabla\times\mathbf{E}\right)-k_0^2\epsilon_r\mathbf{E}\right]d\Omega=-jk_0Z_0\int_{\Omega}\mathbf{W}_i\cdot\mathbf{J}_{imp}d\Omega
+\end{align}
+应用矢量恒等式$\nabla\cdot\left[\mathbf{W}_i\times\left(\frac{1}{\mu_r}\nabla\times\mathbf{E}\right)\right]=\frac{1}{\mu_r}\left(\nabla\times\mathbf{W}_i\right)\cdot\left(\nabla\times\mathbf{E}\right)-\mathbf{W}_i\cdot\left[\nabla\times\left(\frac{1}{\mu_r}\nabla\times\mathbf{E}\right)\right]$，以及高斯定理$\int_{\Omega}\nabla\cdot\left[\mathbf{W}_i\times\left(\frac{1}{\mu_r}\nabla\times\mathbf{E}\right)\right]d\Omega=\oint_{\Gamma}\hat{n}\cdot\left[\mathbf{W}_i\times\left(\frac{1}{\mu_r}\nabla\times\mathbf{E}\right)\right]d\Gamma$，可得式\ref{eq:eq750}的弱式表达式为
+\begin{align}
+    \label{eq:eq754}
+     &\int_{\Omega}\left[\frac{1}{\mu_r}\left(\nabla\times\mathbf{W}_i\right)\cdot\left(\nabla\times\mathbf{E}\right)-k_0^2\epsilon_r\mathbf{W}_i\cdot\mathbf{E}\right]d\Omega \nonumber \\
+    =&\int_{\Gamma_D}\frac{1}{\mu_r}\left(\hat{n}\times\mathbf{W}_i\right)\cdot\left(\nabla\times\mathbf{E}\right)d\Gamma-\int_{\Gamma_N}\left[\frac{jk_0}{\eta_r}\left(\hat{n}\times\mathbf{W}_i\right)\cdot\left(\hat{n}\times\mathbf{E}\right)+\mathbf{W}_i\cdot\mathbf{K}_N\right]d\Gamma \nonumber \\
+     &\qquad-jk_0Z_0\int_{\Omega}\mathbf{W}_i\cdot\mathbf{J}_{imp}d\Omega
+\end{align}
+首先将整个区域$\Omega$分成小的有限单元，使用有限元法求解上式。选择给定单元每一条棱边上电场$\mathbf{E}$的切向分量，使用一组矢量基函数对其他位置的$\mathbf{E}$进行插值。对于三角形单元，
+\begin{align}
+    \label{eq:eq755}
+    \mathbf{E}^e(x,y)=\mathbf{N}_{12}^e(x,y)E^e_{12}+\mathbf{N}_{13}^e(x,y)E^e_{13}+\mathbf{N}_{23}^e(x,y)E^e_{23}
+\end{align}
+对于四面体单元，
+\begin{align}
+    \label{eq:eq756}
+    \mathbf{E}^e(x,y,z)=&\mathbf{N}_{12}^e(x,y,z)E^e_{12}+\mathbf{N}_{13}^e(x,y,z)E^e_{13}+\mathbf{N}_{14}^e(x,y,z)E^e_{14} \nonumber \\
+                        &\qquad+\mathbf{N}_{23}^e(x,y,z)E^e_{23}+\mathbf{N}_{24}^e(x,y,z)E^e_{24}+\mathbf{N}_{34}^e(x,y,z)E^e_{34}
+\end{align}
+其中$E_{lk}^e$表示单元$e$中连接节点$l$和$k$的棱边上的电场切向分量，$\mathbf{N}_{lk}^e$表示相应的插值函数或基函数。将与节点$l$和$k$相关的线性标量基函数分别表示为$N_{l}^e$、$N_{k}^e$，则
+\begin{align}
+    \label{eq:eq757}
+    \mathbf{N}_{lk}^e(r)=(N_{l}^e\nabla N_{k}^e-N_{k}^e\nabla N_{l}^e)\mathfrak{L}_{lk}^e
+\end{align}
+式中，$\mathfrak{L}_{lk}^e$表示连接节点$l$和$k$的带符号的边长，当$n(l,e)<n(k,e)$时取正，反之取负，这样保证了共享同一棱边的单元中定义的矢量基函数沿该棱边指向相同的方向。这种矢量基函数只在其对应的棱边上存在切向分量，保证了插值场的切向分量连续，同时允许法向分量不连续。三角形单元的矢量基函数$\mathbf{N}_{lk}^e$如图\ref{fig:fig61}所示，
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{线性三角形单元的矢量基函数Nlke.PNG}
+    \caption{线性三角形单元的矢量基函数$\mathbf{N}_{lk}^e$}
+    \label{fig:fig61}
+\end{figure}
+\\
+由于每一个单元中的电场$\mathbf{E}$都可以用该单元中棱边上的切向场分量进行插值，所以整个区域$\Omega$中的电场$\mathbf{E}$可以表示为
+\begin{align}
+    \label{eq:eq758}
+    \mathbf{E}=\sum_{j=1}^{N_{edge}}\mathbf{N}_jE_j+\sum_{j=1}^{N_{D}}\mathbf{N}_j^DE_j^D
+\end{align}
+其中，$N_{edge}$是除了$\Gamma_D$上的棱边的所有棱边的总数，$E_j$是第$j$条棱边上$\mathbf{E}$的切向分量，$\mathbf{N}_j$是相应的矢量基函数，$N_{D}$是$\Gamma_D$上的棱边总数，$E_j^D$和$\mathbf{N}_j^D$分别为这些棱边上的切向电场和相应的基函数。对于$\Omega$中的一条棱边，$\mathbf{N}_j$跨越了共享$j$号棱边的几个相邻单元。\par
+将式\ref{eq:eq758}代入式\ref{eq:eq754}，并使用矢量基函数$\mathbf{N}_i$作为加权函数$\mathbf{W}_i$，可得
+\begin{align}
+    \label{eq:eq759}
+    \sum_{j=1}^{N_{edge}}K_{ij}E_j=b_i\qquad i=1,2,\cdots,N_{edge}
+\end{align}
+其中\begin{align}
+    \label{eq:eq760}
+    K_{ij}=&\int_{\Omega}\left[\frac{1}{\mu_r}\left(\nabla\times\mathbf{N}_i\right)\cdot\left(\nabla\times\mathbf{N}_j\right)-k_0^2\epsilon_r\mathbf{N}_i\cdot\mathbf{N}_j\right]d\Omega \nonumber \\
+           &\qquad+jk_0\int_{\Gamma_N}\left[\frac{1}{\eta_r}\left(\hat{n}\times\mathbf{N}_i\right)\cdot\left(\hat{n}\times\mathbf{N}_j\right)\right]d\Gamma \\
+    \label{eq:eq761}
+    b_i=&-jk_0Z_0\int_{\Omega}\mathbf{N}_i\cdot\mathbf{J}_{imp}d\Omega-\int_{\Gamma_N}\mathbf{N}_i\cdot\mathbf{K}_Nd\Gamma \nonumber \\
+        &\qquad-\sum_{j=1}^{N_D}E_j^D\int_{\Omega}\left[\frac{1}{\mu_r}\left(\nabla\times\mathbf{N}_i\right)\cdot\left(\nabla\times\mathbf{N}_j^D\right)-k_0^2\epsilon_r\mathbf{N}_i\cdot\mathbf{N}_j^D\right]d\Omega
+\end{align}
+由于$\Gamma_D$上有$\hat{n}\times\mathbf{N}_i=0$，因此式\ref{eq:eq754}中在$\Gamma_D$上的积分为0。
+式\ref{eq:eq759}紧凑写为
+\begin{align}
+    \label{eq:eq763}
+    [K]\{E\}=\{b\}
+\end{align}
+求解上式可得到$\{E\}$，再根据式\ref{eq:eq758}求得$\Omega$中每一处场值。在式\ref{eq:eq760}中，单元之间的相互作用是局部的，因此矩阵$[K]$稀疏且对称。\par
+类比标量场的有限元分析，对每个有限元网格定义一个连接阵列，描述单元序号与棱边序号之间的关系，这个阵列可定义为$ne(l,k;e)$，给单元$e$中的连接节点$l$和$k$的棱边分配了全局棱边编号。如图\ref{fig:fig62}以及表\ref{tab:tab4}所示。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{对单元_节点和棱边标序之后的有限元网络.PNG}
+    \caption{对单元、节点和棱边标序之后的有限元网络}
+    \label{fig:fig62}
+\end{figure}
+\begin{table}[!ht]
+    \centering
+    \caption{三角形网格中单元与棱边的连接阵列}
+    \label{tab:tab4}
+    \begin{tabular}{cccc}
+        \toprule
+        $e$ & $ne(1,2;e)$ & $ne(1,3;e)$ & $ne(2,3;e)$ \\
+        \midrule
+        1 & 3  & 1  & 6 \\
+        2 & 10 & 6  & 9 \\
+        3 & 9  & 8  & 12 \\
+        4 & 14 & 12 & 13 \\
+        5 & 4  & 2  & 3 \\
+        6 & 5  & 4  & 7 \\
+        7 & 11 & 7  & 10 \\
+        8 & 16 & 11 & 15 \\
+        9 & 15 & 14 & 17 \\
+        \bottomrule
+     \end{tabular}
+\end{table}
+\\
+使用上图所示的有限元网格来计算式\ref{eq:eq760}中的第一项积分对矩阵$[K]$的贡献，对逐个单元计算：
+\begin{align}
+    \label{eq:eq764}
+    K_{lk;l'k'}^e=\int_{\Omega^e}\left[\frac{1}{\mu_r}\left(\nabla\times\mathbf{N}_{lk}^e\right)\cdot\left(\nabla\times\mathbf{N}_{l'k'}^e\right)-k_0^2\epsilon_r\mathbf{N}_{lk}^e\cdot\mathbf{N}_{l'k'}^e\right]d\Omega
+\end{align}
+式中，$l<k$，$l'<k'$，求出$K_{lk;l'k'}^e$后，将其加到$K_{ij}$上，此处棱边$i$和$j$的值分别为$i=ne(l,k;e)$，$j=ne(l',k';e)$(棱边$i$或$j$中任何一个或者两个均在$\Gamma_D$上的情况除外)。式\ref{eq:eq760}中的第二项积分对矩阵$[K]$的贡献也可以通过类似的方法求得。\par
+若三角形单元$e$中的介电常数和磁导率是常数或可以近似成常数，记为$\epsilon^e$和$\mu^e$，则根据式\ref{eq:eq744}，有
+\begin{align}
+    \label{eq:eq766}
+    K_{12;12}^e=&\frac{\mathfrak{L}_{12}^e\mathfrak{L}_{12}^e}{\nabla^e}\left[\frac{1}{\mu_r^e}-\frac{k_0^2\epsilon_r^e}{24}\left(f_{11}^e+f_{22}^e-f_{12}^e\right)\right] \\
+    K_{13;13}^e=&\frac{\mathfrak{L}_{13}^e\mathfrak{L}_{13}^e}{\nabla^e}\left[\frac{1}{\mu_r^e}-\frac{k_0^2\epsilon_r^e}{24}\left(f_{11}^e+f_{33}^e-f_{13}^e\right)\right] \\
+    K_{23;23}^e=&\frac{\mathfrak{L}_{23}^e\mathfrak{L}_{23}^e}{\nabla^e}\left[\frac{1}{\mu_r^e}-\frac{k_0^2\epsilon_r^e}{24}\left(f_{22}^e+f_{33}^e-f_{23}^e\right)\right] \\
+    K_{12;13}^e=&\frac{\mathfrak{L}_{12}^e\mathfrak{L}_{13}^e}{\nabla^e}\left[-\frac{1}{\mu_r^e}+\frac{k_0^2\epsilon_r^e}{48}\left(f_{12}^e+f_{13}^e-2f_{23}^e-f_{11}^e\right)\right] \\
+    K_{12;23}^e=&\frac{\mathfrak{L}_{12}^e\mathfrak{L}_{23}^e}{\nabla^e}\left[\frac{1}{\mu_r^e}+\frac{k_0^2\epsilon_r^e}{48}\left(f_{12}^e-f_{23}^e-2f_{13}^e-f_{22}^e\right)\right] \\
+    K_{13;23}^e=&\frac{\mathfrak{L}_{13}^e\mathfrak{L}_{23}^e}{\nabla^e}\left[-\frac{1}{\mu_r^e}+\frac{k_0^2\epsilon_r^e}{48}\left(f_{13}^e+f_{23}^e-2f_{12}^e-f_{33}^e\right)\right] \\
+\end{align}
+其中$f_{lk}^e=b_l^eb_k^e+c_l^ec_k^e$。
+\subsection{时域有限元分析}
+考虑区域$\Omega$中，介电常数为$\epsilon$、磁导率为$\mu$、电导率为$\sigma$，求解由电流密度$\vec{\mathcal{J}}_{imp}(t)$产生的电场强度$\vec{\mathcal{E}}(t)$。从麦克斯韦方程组出发：
+\begin{align}
+    \label{eq:eq748}
+    \nabla \times \vec{\mathcal{E}}(t)&=-\mu\frac{\partial\vec{\mathcal{H}}(t)}{\partial t} \\
+    \label{eq:eq749}
+    \nabla \times \vec{\mathcal{H}}(t)&=\epsilon\frac{\partial\vec{\mathcal{E}}(t)}{\partial t}+\sigma\vec{\mathcal{E}}(t)+\vec{\mathcal{J}}_{imp}(t)
+\end{align}
+消去式\ref{eq:eq748}、式\ref{eq:eq749}中的$\vec{\mathcal{H}}(t)$，可得关于$\vec{\mathcal{E}}(t)$的矢量波动方程：
+\begin{align}
+    \label{eq:eq769}
+    \nabla\times\left[\frac{1}{\mu}\nabla\times\vec{\mathcal{E}}(t)\right]+\epsilon\frac{\partial^2\vec{\mathcal{E}}(t)}{\partial t^2}+\sigma\frac{\partial \vec{\mathcal{E}}(t)}{\partial t}=-\frac{\partial \vec{\mathcal{J}}_{imp}(t)}{\partial t}
+\end{align}
+边界条件为
+\begin{align}
+    \label{eq:eq767}
+    \hat{n} \times \vec{\mathcal{E}}(t)=&\vec{\mathcal{P}}_D(t) \qquad on~\Gamma_D \\
+    \label{eq:eq768}
+    \hat{n} \times \left[\frac{1}{\mu}\nabla\times\vec{\mathcal{E}}(t)\right]+Y\hat{n}\times\left[\hat{n}\times\frac{\partial}{\partial t}\vec{\mathcal{E}}(t)\right]=&\vec{\mathcal{K}}_N(t) \qquad on~\Gamma_N
+\end{align}
+其中$Y$是边界$\Gamma_N$的表面导纳。
+使用加权残差法、矢量恒等式、高斯定理，可得式\ref{eq:eq769}的弱式表达式为
+\begin{align}
+    \label{eq:eq770}
+     &\int_{\Omega}\left[\frac{1}{\mu}\left(\nabla\times\mathbf{W}_i\right)\cdot\left(\nabla\times\vec{\mathcal{E}}\right)+\epsilon\mathbf{W}_i\cdot\frac{\partial^2\vec{\mathcal{E}}(t)}{\partial t^2}+\sigma\mathbf{W}_i\cdot\frac{\partial \vec{\mathcal{E}}(t)}{\partial t}\right]d\Omega \nonumber \\
+    =&-\int_{\Gamma_N}\left[Y(\hat{n}\times\mathbf{W}_i)\cdot\left(\hat{n}\times\frac{\partial \vec{\mathcal{E}}}{\partial t}\right)+\mathbf{W}_i\cdot\vec{\mathcal{K}}_N\right]d\Gamma-\int_{\Omega}\mathbf{W}_i\cdot\frac{\partial \vec{\mathcal{J}}_{imp}}{\partial t}d\Omega
+\end{align}
+其中，为了满足式\ref{eq:eq767}，矢量加权函数应该在$\Gamma_D$上满足边界条件$\hat{n}\times\mathbf{W}_i=0$。使用有限元的方法求解上式，首先将求解空间划分成许多小的有限元，，然后将每个单元中的电场用矢量基函数展开，即
+\begin{align}
+    \label{eq:eq771}
+    \vec{\mathcal{E}}(\vec{r},t)=\sum_{j=1}^{N_{edge}}\mathbf{N}_j(\vec{r})\mathcal{E}_j(t)+\sum_{j=1}^{N_{D}}\mathbf{N}^D_j(\vec{r})\mathcal{E}^D_j(t)
+\end{align}
+代入式\ref{eq:eq770}，并令$\mathbf{W}_i=\mathbf{N}_i$，得二阶常微分方程：
+\begin{align}
+    \label{eq:eq772}
+    [T]\frac{d^2\{\mathcal{E}\}}{dt^2}+[R]\frac{d\{\mathcal{E}\}}{dt}+[S]\{\mathcal{E}\}=\{\mathfrak{I}\}
+\end{align}
+其中
+\begin{align}
+    \label{eq:eq773}
+    T_{ij}=&\int_{\Omega}\epsilon\mathbf{N}_i\cdot\mathbf{N}_jd\Omega \\
+    \label{eq:eq784}
+    R_{ij}=&\int_{\Omega}\sigma\mathbf{N}_i\cdot\mathbf{N}_jd\Omega+\int_{\Gamma_N}Y(\hat{n}\times\mathbf{N}_i)\cdot(\hat{n}\times\mathbf{N}_j)d\Gamma \\
+    \label{eq:eq785}
+    S_{ij}=&\int_{\Omega}\frac{1}{\mu}(\nabla\times\mathbf{N}_i)\cdot(\nabla\times\mathbf{N}_j)d\Omega \\
+    \label{eq:eq786}
+    \mathfrak{I}_{i}=&-\int_{\Omega}\mathbf{N}_i\cdot\frac{\partial\vec{\mathcal{J}}_{imp}}{\partial t}d\Omega-\int_{\Gamma_N}\mathbf{W}_i\cdot\vec{\mathcal{K}}_Nd\Gamma \nonumber \\
+                     &\qquad-\sum_{j=1}^{N_D}\int_{\Omega}\left[\frac{1}{\mu}\left(\nabla\cdot\mathbf{N}_i\right)\cdot\left(\nabla\cdot\mathbf{N}_j^D\right)\mathcal{E}_j^D+\mathbf{N}_i\cdot\mathbf{N}_j^D\left(\epsilon\frac{d^2\mathcal{E}_j^D}{dt^2}+\sigma\frac{d\mathcal{E}_j^D}{dt}\right)\right]
+\end{align}
+$[T]$、$[R]$、$[S]$均为稀疏且对称的矩阵，$\{\mathfrak{I}\}$是场源向量，$\{\mathcal{E}\}=[\mathcal{E}_1,\mathcal{E}_1,\cdots,\mathcal{E}_{N_{edge}}]^T$。可以使用有限差分法求解式\ref{eq:eq772}，对时间变量$t$均匀离散，得$t=n\Delta t(n=0,1,\cdots)$，对一阶和二阶导数使用中心差分：
+\begin{align}
+    \label{eq:eq774}
+    \frac{d\{\mathcal{E}\}}{dt}\approx&\frac{\{\mathcal{E}\}^{n+1}-\{\mathcal{E}\}^{n-1}}{2\Delta t} \\
+    \label{eq:eq775}
+    \frac{d^2\{\mathcal{E}\}}{dt^2}\approx&\frac{\{\mathcal{E}\}^{n+1}-2\{\mathcal{E}\}^{n}+\{\mathcal{E}\}^{n-1}}{(\Delta t)^2}
+\end{align}
+代入式\ref{eq:eq772}，得时间步进公式
+\begin{align}
+    \label{eq:eq776}
+     &\left\{\frac{1}{(\Delta t)^2}[T]+\frac{1}{2\Delta t}[R]\right\}\{\mathcal{E}\}^{n+1} \nonumber \\
+    =&\left\{\frac{2}{(\Delta t)^2}[T]-[S]\right\}\{\mathcal{E}\}^{n}-\left\{\frac{1}{(\Delta t)^2}[T]-\frac{1}{2\Delta t}[R]\right\}\{\mathcal{E}\}^{n-1}+\{\mathfrak{I}\}^n
+\end{align}
+基于先前时刻的场值$\{\mathcal{E}\}^{n}$、$\{\mathcal{E}\}^{n-1}$和激励$\{\mathfrak{I}\}^n$，可通过上式求得$\{\mathcal{E}\}^{n+1}$，给定$\{\mathcal{E}\}$的初始值$\{\mathcal{E}\}^{0}$和$\{\mathcal{E}\}^{1}$，以及激励向量$\{\mathfrak{I}\}$，根据上式可以求得所有时刻的$\{\mathcal{E}\}$，每个时间步都要求解矩阵方程。\par
+上述有限差分法若使用前向差分，将得到不稳定的时间步进公式，没有物理意义；使用后向差分，将得到无条件稳定的时间步进公式，但只有一阶精度；使用中心差分得到的时间步进公式\ref{eq:eq776}具有二阶精度，但有条件稳定，只有当$\Delta t$小于由空间离散规定的某个值时，时间步进才稳定。最好的选择是使用从Newmark-beta积分法中推导的差分公式，等价于对一阶和二阶导数使用中心差分，并对非微分的量使用下面的加权平均：
+\begin{align}
+    \label{eq:eq777}
+    \left.\{\mathcal{E}\}\right|_{t=n\Delta t}\approx&\beta\{\mathcal{E}\}^{n+1}+(1-2\beta)\{\mathcal{E}\}^{n}+\beta\{\mathcal{E}\}^{n-1} \\
+    \left.\{\mathfrak{I}\}\right|_{t=n\Delta t}\approx&\beta\{\mathfrak{I}\}^{n+1}+(1-2\beta)\{\mathfrak{I}\}^{n}+\beta\{\mathfrak{I}\}^{n-1}
+\end{align}
+其中$\beta\in[0,1]$，代入式\ref{eq:eq772}，得时间步进公式
+\begin{align}
+    \label{eq:eq778}
+     &\left\{\frac{1}{(\Delta t)^2}[T]+\frac{1}{2\Delta t}[R]+\beta[S]\right\}\{\mathcal{E}\}^{n+1} \nonumber \\
+    =&\left\{\frac{2}{(\Delta t)^2}[T]-(1-2\beta)[S]\right\}\{\mathcal{E}\}^{n}-\left\{\frac{1}{(\Delta t)^2}[T]-\frac{1}{2\Delta t}[R]+\beta[S]\right\}\{\mathcal{E}\}^{n-1} \nonumber \\
+     &\qquad+\beta\{\mathfrak{I}\}^{n+1}+(1-2\beta)\{\mathfrak{I}\}^{n}+\beta\{\mathfrak{I}\}^{n-1}
+\end{align}
+当$\beta=0$时，上式等同于式\ref{eq:eq776}，当$\beta>1/4$时，上式无条件稳定。上述方法称为\textbf{\color{blue}{时域有限元法(FETD)}}。\par
+考虑一种电色散媒质，其电通密度$\vec{\mathcal{D}}(t)$与电场强度$\vec{\mathcal{E}}(t)$的本构关系为(同式\ref{eq:eq662})：
+\begin{align}
+    \label{eq:eq779}
+    \vec{\mathcal{D}}(t)&=\epsilon_{\infty}\vec{\mathcal{E}}(t)+\epsilon_0\chi_e(t)\ast \vec{\mathcal{E}}(t) \nonumber \\
+                        &=\epsilon_{\infty}\vec{\mathcal{E}}(t)+\epsilon_0\int_0^t\chi_e(t-\tau)\vec{\mathcal{E}}(\tau)d\tau
+\end{align}
+其中$\epsilon_{\infty}$是光频段的介电常数，$\chi_e(t)$是电极化率，当$t\leq0$时，$\vec{\mathcal{E}}(t)\equiv 0$。结合麦克斯韦方程以及上述本构关系，得矢量波动方程为
+\begin{align}
+    \label{eq:eq780}
+    \nabla\times\left[\frac{1}{\mu}\nabla\times\vec{\mathcal{E}}(t)\right]+\epsilon_{\infty}\frac{\partial^2\vec{\mathcal{E}}(t)}{\partial t^2}+\epsilon_0\frac{\partial^2}{\partial t^2}\left[\chi_e(t)*\vec{\mathcal{E}}(t)\right]=-\frac{\partial \vec{\mathcal{J}}_{imp}(t)}{\partial t}
+\end{align}
+假设$\left.[\frac{\partial\vec{\mathcal{E}}(t)}{\partial t}]\right|_{t=0}=0$，则可得$\frac{\partial^2}{\partial t^2}\left[\chi_e(t)*\vec{\mathcal{E}}(t)\right]=\chi_e(t)*\frac{\partial^2\vec{\mathcal{E}}(t)}{\partial t^2}$，代入上式，并使用加权残差法，得到上式的弱式表达式：
+\begin{align}
+    \label{eq:eq781}
+     &\int_{\Omega}\left[\frac{1}{\mu}\left(\nabla\times\mathbf{W}_i\right)\cdot\left(\nabla\times\vec{\mathcal{E}}\right)+\epsilon_{\infty}\mathbf{W}_i\cdot\frac{\partial^2\vec{\mathcal{E}}(t)}{\partial t^2}+\epsilon_{0}\mathbf{W}_i\cdot\chi_e(t)*\frac{\partial^2\vec{\mathcal{E}}(t)}{\partial t^2}\right]d\Omega \nonumber \\
+    =&-\int_{\Gamma_N}\left[Y(\hat{n}\times\mathbf{W}_i)\cdot\left(\hat{n}\times\frac{\partial \vec{\mathcal{E}}}{\partial t}\right)+\mathbf{W}_i\cdot\vec{\mathcal{K}}_N\right]d\Gamma-\int_{\Omega}\mathbf{W}_i\cdot\frac{\partial \vec{\mathcal{J}}_{imp}}{\partial t}d\Omega
+\end{align}
+将卷积项携程半离散形式：
+\begin{align}
+    \label{eq:eq782}
+    \left.\chi_e(t)*\frac{\partial^2\vec{\mathcal{E}}(t)}{\partial t^2}\right|_{t=n\Delta t}=\int_0^{\Delta t/2}\chi_e(\tau)\ddot{\vec{\mathcal{E}}}(n\Delta t-\tau)d\tau+\sum_{k=0}^{n-1}\int_{(k+1/2)\Delta t}^{(k+3/2)\Delta t}\chi_e(\tau)\ddot{\vec{\mathcal{E}}}(n\Delta t-\tau)d\tau
+\end{align}
+式中$\ddot{\vec{\mathcal{E}}}$是$\vec{\mathcal{E}}$的二阶导数。对于等离子、Debye、洛伦兹类型的材料，$\chi_e(t)=Re\left[ae^{-nt}u(t)\right]$，代入式\ref{eq:eq782}，并进一步代入式\ref{eq:eq781}，应用有限元法的空间离散，并对其中的时间积分应用$\beta=1/4$的Newmark-beta差分，可得时间步进公式：
+\begin{align}
+    \label{eq:eq783}
+     &\left\{\frac{1}{(\Delta t)^2}[T]+\frac{1}{2\Delta t}[R]+\frac{1}{4}[S]\right\}\{\mathcal{E}\}^{n+1} \nonumber \\
+    =&\left\{\frac{2}{(\Delta t)^2}[T]-\frac{1}{2}[S]\right\}\{\mathcal{E}\}^{n}-\left\{\frac{1}{(\Delta t)^2}[T]-\frac{1}{2\Delta t}[R]+\frac{1}{4}[S]\right\}\{\mathcal{E}\}^{n-1} \nonumber \\
+     &\qquad-\frac{1}{(\Delta t)^2}\{\varPsi\}^n+\frac{1}{4}\left[\{\mathfrak{I}\}^{n+1}+2\{\mathfrak{I}\}^{n}+\{\mathfrak{I}\}^{n-1}\right]
+\end{align}
+其中$[R]$、$[S]$、$\{\mathfrak{I}\}$定义同式\ref{eq:eq784}、式\ref{eq:eq785}、式\ref{eq:eq786}，$[T]$和$\{\varPsi\}^n$的元素为：
+\begin{align}
+    \label{eq:787}
+    T_{ij}=&Re\left[\epsilon_{\infty}+\epsilon_{0}\frac{a}{b}\left(1-e^{-b\Delta t/2}\right)\right]\int_{\Omega}\epsilon\mathbf{N}_i\cdot\mathbf{N}_jd\Omega \\
+    \label{eq:eq788}
+    \{\varPsi\}^n=&\sum_{k=0}^{n-1}Re[Phi]^k\left(\{\mathcal{E}\}^{n-k}-2\{\mathcal{E}\}^{n-k-1}+\{\mathcal{E}\}^{n-k-2}\right)
+\end{align}
+其中
+\begin{align}
+    \label{eq:eq789}
+    \Phi^k_{ij}=\epsilon_0\left[\frac{a}{b}\left(1-e^{-b\Delta t/2}\right)e^{-b(k+1/2)\Delta t}\right]\int_{\Omega}\epsilon\mathbf{N}_i\cdot\mathbf{N}_jd\Omega
+\end{align}
+由递归关系$[\Phi]^k=e^{-b\Delta t}[\Phi]^{k-1}$，则式\ref{eq:eq788}可由下式求得：
+\begin{align}
+    \label{eq:eq790}
+    \{\varPsi\}^n=&Re\left[\{\tilde{\varPsi}\}^n\right] \\
+    \{\tilde{\varPsi}\}^n=&[\Phi]^0\left(\{\mathcal{E}\}^{n}-2\{\mathcal{E}\}^{n-1}+\{\mathcal{E}\}^{n-2}\right)+e^{-b\Delta t}\{\tilde{\varPsi}\}^{n-1}
+\end{align}
+这种递归卷积可以显著节省计算时间和存储空间。
+\subsection{时域间断伽辽金法}
+\subsubsection{基本思想}
+考虑速度为$c$的波动方程(一维偏分方程)：
+\begin{align}
+    \label{eq:eq791}
+    \frac{1}{c}\frac{\partial\varphi(x,t)}{\partial t}-\frac{\partial\varphi(x,t)}{\partial x}=0
+\end{align}
+求解有限区域$(0,L)$内用数值方法求解此方程，将区域分成小的单元，乘以一个加权函数$w^e$，并在一个单元上积分：
+\begin{align}
+    \label{eq:eq792}
+    \int_{x_1^e}^{x_2^e}w^e\left[\frac{1}{c}\frac{\partial\varphi}{\partial t}-\frac{\partial\varphi}{\partial x}\right]=0
+\end{align}
+式中，$x_1^e$和$x_2^e$表示单元$e$的两个端点。使用分部积分得到弱式表达式：
+\begin{align}
+    \label{eq:eq793}
+    \int_{x_1^e}^{x_2^e}\left[w^e\frac{1}{c}\frac{\partial\varphi}{\partial t}+\varphi\frac{\partial w^e}{\partial x}\right]=\left[\varphi w^e\right]_{x_1^e}^{x_2^e}
+\end{align}
+为了使单元$e$与相邻单元耦合，引入\textbf{\color{blue}{数值通量}}，记为$f$，代替上式右边的$\varphi$：
+\begin{align}
+    \label{eq:eq794}
+    \int_{x_1^e}^{x_2^e}\left[w^e\frac{1}{c}\frac{\partial\varphi}{\partial t}+\varphi\frac{\partial w^e}{\partial x}\right]=\left[f w^e\right]_{x_1^e}^{x_2^e}
+\end{align}
+再使用分部积分反推强式表达式：
+\begin{align}
+    \label{eq:eq795}
+    \int_{x_1^e}^{x_2^e}w^e\left[\frac{1}{c}\frac{\partial\varphi}{\partial t}-\frac{\partial\varphi}{\partial x}\right]=\left[(f-\varphi) w^e\right]_{x_1^e}^{x_2^e}
+\end{align}
+选取合适的数值通量以耦合相邻单元中的波，一种选择是\textbf{\color{blue}{中心通量}}，$f=\frac{1}{2}(\varphi+\varphi^+)$，另一种选择是\textbf{\color{blue}{迎风通量}}，$f=\varphi^+$，其中$\varphi^+$表示紧邻单元外侧的$f=\varphi$值。将两种选择统一地写成
+\begin{align}
+    \label{eq:eq796}
+    f=\frac{1}{2}(\varphi+\varphi^+)+\frac{1-\alpha}{2}(\varphi^+-\varphi)
+\end{align}
+当$\alpha=1$时为中心通量，当$\alpha=0$时为迎风通量。\par
+使用基函数$N_j^e$将单元$e$中的$\varphi$展开为
+\begin{align}
+    \label{eq:eq797}
+    \varphi=\sum_{j=1}^{p}N_j^e(x)\varphi_j^e(t)
+\end{align}
+式中，$p$是基函数的阶数，$N_j^e$可以选择与传统有限元法不同的函数。则式\ref{eq:eq795}变为
+\begin{align}
+    \label{eq:eq798}
+    [T^e]\frac{d\{\varphi^e\}}{dt}-[S^e]\{\varphi^e\}=\{\mathfrak{V}^e\}
+\end{align}
+式中，$\{\varphi^e\}=\left[\varphi^e_1,\varphi^e_2,\cdots,\varphi^e_p\right]^T$是$p\times 1$的未知向量，$[T^e]$和$[S^e]$是$p\times p$的方阵，$\{\mathfrak{V}^e\}$是$p\times 1$的向量，元素为：
+\begin{align}
+    \label{eq:eq799}
+    T^e_{ij}=&\int_{x_1^e}^{x_2^e}\frac{1}{c}N_i^eN_j^edx \\
+    \label{eq:eq800}
+    S^e_{ij}=&\int_{x_1^e}^{x_2^e}N_i^e\frac{\partial N_j^e}{\partial x}dx-\frac{2-\alpha}{2}\left[N_i^eN_j^e\right]_{x_1^e}^{x_2^e} \\
+    \label{eq:eq801}
+    \mathfrak{V}^e_i=&\frac{2-\alpha}{2}\left[N_i^e\varphi^+\right]_{x_1^e}^{x_2^e}
+\end{align}
+通过使用有限差分法或龙格-库塔法求解式\ref{eq:eq798}，通过时域离散，逐个单元、逐个时间地计算$\{\varphi^e\}$。当$0\leq \alpha \leq 1$时，时间步进有条件稳定。\\
+时域间断伽辽金法(DGTD)相比于时域有限元法(FETD)：\\
+（1）不要求基函数$N_j^e$在跨越单元时连续，每个单元可以有自己的基函数，唯一的要求是这些基函数在每个单元中是完备的，使得他们的线性组合可以准确表示单元中的未知函数，因此容易使用高阶基函数；\\
+（2）在单元之间的分界面上不连续，不连续性随着数值解精度的提高而减小；\\
+（3）不必求解全局方程组，仅需对每个单元求解一个$p\times p$的小矩阵，其高效的代价是有条件稳定，为了改善这个问题，可以使用局部时间步进，即基于单元尺寸的大小选择不同的时间步长大小；另一个代价是未知数数量增加，但对计算时间并不会带来显著影响。
+\subsubsection{中心通量时域间断伽辽金法}
+考虑区域$\Omega$中，介电常数为$\epsilon$、磁导率为$\mu$，忽略电导率$\sigma$以及电流源$\vec{\mathcal{J}}_{imp}(t)$，此时麦克斯韦方程组写为
+\begin{align}
+    \label{eq:eq802}
+    \nabla \times \vec{\mathcal{E}}(t)&=-\mu\frac{\partial\vec{\mathcal{H}}(t)}{\partial t} \\
+    \label{eq:eq803}
+    \nabla \times \vec{\mathcal{H}}(t)&=\epsilon\frac{\partial\vec{\mathcal{E}}(t)}{\partial t}
+\end{align}
+等式两边同时乘以加权适量函数$\mathbf{W}_i$，并在一个单元$\Omega^e$内积分，得
+\begin{align}
+    \label{eq:eq804}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\mu\frac{\partial\vec{\mathcal{H}}}{\partial t}+\nabla \times \vec{\mathcal{E}}\right)d\Omega&=0 \\
+    \label{eq:eq805}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\epsilon\frac{\partial\vec{\mathcal{E}}}{\partial t}-\nabla \times \vec{\mathcal{H}}\right)d\Omega&=0
+\end{align}
+使用矢量恒等式$\mathbf{W}_i\cdot(\nabla\times\mathbf{A})=\nabla\cdot(\mathbf{A}\times\mathbf{W}_i)+\mathbf{A}\cdot(\nabla\times\mathbf{W}_i)$和散度定理，可得两个方程的弱式表达式：
+\begin{align}
+    \label{eq:eq806}
+    \int_{\Omega^e}\left[\mu\mathbf{W}_i\cdot\frac{\partial\vec{\mathcal{H}}}{\partial t}+(\nabla\times\mathbf{W}_i)\cdot\vec{\mathcal{E}}\right]d\Omega=&-\oint_{\Gamma^e}\mathbf{W}_i\cdot(\hat{n}\times\vec{\mathcal{E}})d\Gamma \\
+    \label{eq:eq807}
+    \int_{\Omega^e}\left[\epsilon\mathbf{W}_i\cdot\frac{\partial\vec{\mathcal{E}}}{\partial t}-(\nabla\times\mathbf{W}_i)\cdot\vec{\mathcal{H}}\right]d\Omega=&\oint_{\Gamma^e}\mathbf{W}_i\cdot(\hat{n}\times\vec{\mathcal{H}})d\Gamma
+\end{align}
+式中，$\Gamma^e$表示包围$\Omega^e$的边界。为了将单元内部场与外部场$(\vec{\mathcal{E}}^+,\vec{\mathcal{H}}^+)$耦合，分别用是指通量$\vec{\mathcal{F}}_e$、$\vec{\mathcal{F}}_h$替换上式中的$\hat{n}\times\vec{\mathcal{E}}$、$\hat{n}\times\vec{\mathcal{H}}$，并逆向应用矢量恒等式和散度定理，反推得到强式表达式为：
+\begin{align}
+    \label{eq:eq808}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\mu\frac{\partial\vec{\mathcal{H}}}{\partial t}+\nabla\times\vec{\mathcal{E}}\right)d\Omega=&-\oint_{\Gamma^e}\mathbf{W}_i\cdot(\vec{\mathcal{F}}_e-\hat{n}\times\vec{\mathcal{E}})d\Gamma \\
+    \label{eq:eq809}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\epsilon\frac{\partial\vec{\mathcal{E}}}{\partial t}-\nabla\times\vec{\mathcal{H}}\right)d\Omega=&\oint_{\Gamma^e}\mathbf{W}_i\cdot(\vec{\mathcal{F}}_h-\hat{n}\times\vec{\mathcal{H}})d\Gamma
+\end{align}
+选择数值通量为中心通量：
+\begin{align}
+    \label{eq:eq810}
+    \vec{\mathcal{F}}_e=\frac{1}{2}[\hat{n}\times(\vec{\mathcal{E}}+\vec{\mathcal{E}}^+)]\qquad\vec{\mathcal{F}}_h=\frac{1}{2}[\hat{n}\times(\vec{\mathcal{H}}+\vec{\mathcal{H}}^+)]
+\end{align}
+记切向场分量的跳变为：
+\begin{align}
+    \label{eq:eq811}
+    \llbracket\vec{\mathcal{E}}\rrbracket=\hat{n}\times(\vec{\mathcal{E}}^+-\vec{\mathcal{E}})\qquad\llbracket\vec{\mathcal{H}}\rrbracket=\hat{n}\times(\vec{\mathcal{H}}^+-\vec{\mathcal{H}})
+\end{align}
+则式\ref{eq:eq808}、式\ref{eq:eq809}写成
+\begin{align}
+    \label{eq:eq812}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\mu\frac{\partial\vec{\mathcal{H}}}{\partial t}+\nabla\times\vec{\mathcal{E}}\right)d\Omega=&-\frac{1}{2}\oint_{\Gamma^e}\mathbf{W}_i\cdot\llbracket\vec{\mathcal{E}}\rrbracket d\Gamma \\
+    \label{eq:eq813}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\epsilon\frac{\partial\vec{\mathcal{E}}}{\partial t}-\nabla\times\vec{\mathcal{H}}\right)d\Omega=&\frac{1}{2}\oint_{\Gamma^e}\mathbf{W}_i\cdot\llbracket\vec{\mathcal{H}}\rrbracket d\Gamma
+\end{align}
+这两个式子是中心通量时域间断伽辽金法构建的基础。\par
+将场设置为以下形式来满足导电边界上的边界条件(或直接规定边界上的未知数为零)：
+\begin{align}
+    \label{eq:eq814}
+    \hat{n}\times\vec{\mathcal{E}}^+=-\hat{n}\times\vec{\mathcal{E}}\qquad\hat{n}\times\vec{\mathcal{H}}^+=\hat{n}\times\vec{\mathcal{H}}
+\end{align}
+将场设置为以下形式来满足混合边界条件，包括阻抗边界条件和一阶吸收边界条件：
+\begin{align}
+    \label{eq:eq815}
+    \hat{n}\times\vec{\mathcal{E}}^+=-Z_s\hat{n}\times(\hat{n}\times\vec{\mathcal{H}})\qquad\hat{n}\times\vec{\mathcal{H}}^+=Y_s\hat{n}\times(\hat{n}\times\vec{\mathcal{H}})
+\end{align}
+在每个单元中展开$\vec{\mathcal{E}}$和$\vec{\mathcal{H}}$，通常选用的基函数为插值点位于单元内部的拉格朗日插值多项式和勒让德多项式，也可以选用传统有限元法使用的矢量基函数。现使用矢量基函数展开$\vec{\mathcal{E}}$和$\vec{\mathcal{H}}$，并选择其作为权重矢量函数$\mathbf{W}_i$来离散式\ref{eq:eq812}、式\ref{eq:eq813}，同时包含传导损耗$(\sigma_e,\sigma_m)$和外加源$(\vec{\mathcal{J}}_{imp},\vec{\mathcal{M}}_{imp})$可得
+\begin{align}
+    \label{eq:eq816}
+    [T_e^e]\frac{d\{\mathcal{E}^e\}}{dt}-[S_1^e]\{\mathcal{H}^e\}=\{\mathfrak{L}_e^e\}-[R_e^e]\{\mathcal{E}^e\}+\{\mathfrak{V}_e^e\} \\
+    \label{eq:eq817}
+    [T_h^e]\frac{d\{\mathcal{H}^e\}}{dt}-[S_1^e]\{\mathcal{E}^e\}=\{\mathfrak{L}_h^e\}-[R_h^e]\{\mathcal{H}^e\}+\{\mathfrak{V}_h^e\}
+\end{align}
+其中，
+\begin{align}
+    \label{eq:eq818}
+    T_e^e(i,j)=&\int_{\Omega^e}\epsilon\mathbf{N}_i^e\cdot\mathbf{N}_j^ed\Omega \\
+    \label{eq:eq819}
+    T_h^e(i,j)=&\int_{\Omega^e}\mu\mathbf{N}_i^e\cdot\mathbf{N}_j^ed\Omega \\
+    \label{eq:eq820}
+    S_1^e(i,j)=&\frac{1}{2}\int_{\Omega^e}\left[\mathbf{N}_i^e\cdot\left(\nabla\times\mathbf{N}_j^e\right)+\left(\nabla\times\mathbf{N}_i^e\right)\cdot\mathbf{N}_j^e\right]d\Omega \\
+    \label{eq:eq821}
+    R_e^e(i,j)=&\int_{\Omega^e}\sigma_e\mathbf{N}_i^e\cdot\mathbf{N}_j^ed\Omega+\frac{1}{2}\int_{\Gamma^e\cap\Gamma_M}Y_s(\hat{n}\times\mathbf{N}_i^e)\cdot(\hat{n}\times\mathbf{N}_j^e)d\Gamma \\
+    \label{eq:eq822}
+    R_h^e(i,j)=&\int_{\Omega^e}\sigma_h\mathbf{N}_i^e\cdot\mathbf{N}_j^ed\Omega+\frac{1}{2}\int_{\Gamma^e\cap\Gamma_M}Z_s(\hat{n}\times\mathbf{N}_i^e)\cdot(\hat{n}\times\mathbf{N}_j^e)d\Gamma \\
+    \label{eq:eq823}
+    \mathfrak{L}_e^e(i)=&\frac{1}{2}\int_{\Gamma^e\cap\Gamma_I}\mathbf{N}_i^e\cdot(\hat{n}\times\vec{\mathcal{H}}^+)d\Gamma \\
+    \label{eq:eq824}
+    \mathfrak{L}_h^e(i)=&\frac{1}{2}\int_{\Gamma^e\cap\Gamma_I}(\hat{n}\times\mathbf{N}_i^e)\cdot\vec{\mathcal{E}}^+d\Gamma \\
+    \label{eq:eq825}
+    \mathfrak{V}_e^e(i)=&-\int_{\Omega^e}\mathbf{N}_i^e\cdot\vec{\mathcal{J}}_{imp}\Omega \\
+    \label{eq:eq826}
+    \mathfrak{V}_h^e(i)=&-\int_{\Omega^e}\mathbf{N}_i^e\cdot\vec{\mathcal{M}}_{imp}\Omega
+\end{align}
+式中，$\Gamma_M$表示阻抗边界，$\Gamma^e\cap\Gamma_M$表示$\Gamma^e$中与阻抗边界相同的部分，$\Gamma_I$表示单元之间的界面。\par
+对式\ref{eq:eq816}、式\ref{eq:eq817}使用中心差分法离散为时间步进公式，得
+\begin{align}
+    \label{eq:eq827}
+    \left(\frac{1}{\Delta t}[T_e^e]+\frac{1}{2}[R_e^e]\right)\{\mathcal{E}^e\}^{n+1}=&\left(\frac{1}{\Delta t}[T_e^e]-\frac{1}{2}[R_e^e]\right)\{\mathcal{E}^e\}^{n}+[S_1^e]\{\mathcal{H}^e\}^{n+1/2} \nonumber \\
+                                                                                     &\qquad+\{\mathfrak{L}_e^e\}^{n+1/2}+\{\mathfrak{V}_e^e\}^{n+1/2} \\
+    \label{eq:eq828}
+    \left(\frac{1}{\Delta t}[T_h^e]+\frac{1}{2}[R_h^e]\right)\{\mathcal{H}^e\}^{n+3/2}=&\left(\frac{1}{\Delta t}[T_h^e]-\frac{1}{2}[R_h^e]\right)\{\mathcal{H}^e\}^{n+1/2}-[S_1^e]\{\mathcal{E}^e\}^{n+1} \nonumber \\
+                                                                                       &\qquad+\{\mathfrak{L}_h^e\}^{n+1}+\{\mathfrak{V}_h^e\}^{n+1}
+\end{align}
+上述两个公式可以通过蛙跳的方式逐个单元、逐个时间步地计算电场和磁场，即$\{\mathcal{E}^e\}^{n}\rightarrow \{\mathcal{H}^e\}^{n+1/2}\rightarrow \{\mathcal{E}^e\}^{n+1}\rightarrow \{\mathcal{H}^e\}^{n+3/2}$。由于相邻单元之间的场的耦合是显式的，所以这个时间步进过程是有条件稳定的。若使用传统有限元法的矢量基函数，时域间断伽辽金解按照$O(h^p)$收敛，其中$h$表示单元尺寸，$p$表示基函数的阶数。相比于时域有限元法，时域间断伽辽金法收敛更慢，是因为使用中心通量进行耦合以及使用有限差分对时域离散引起的。
+\subsubsection{迎风通量时域间断伽辽金法}
+通过对两个单元分界面求解一维黎曼问题，得到数值通量
+\begin{align}
+    \label{eq:eq829}
+    \vec{\mathcal{F}}_e=\hat{n}\times\frac{Y^+\vec{\mathcal{E}}^++\hat{n}\times\vec{\mathcal{H}}^+}{Y^++Y}\qquad\vec{\mathcal{F}}_h=\hat{n}\times\frac{Z^+\vec{\mathcal{H}}^+-\hat{n}\times\vec{\mathcal{E}}^+}{Z^++Z}
+\end{align}
+式中，$Z=1/Y$、$Z^+=1/Y^+$表示两个单元的特征阻抗，通量传播进入单元，代入式\ref{eq:eq808}、式\ref{eq:eq809}得
+\begin{align}
+    \label{eq:eq830}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\mu\frac{\partial\vec{\mathcal{H}}}{\partial t}+\nabla\times\vec{\mathcal{E}}\right)d\Omega=&-\oint_{\Gamma^e}\overline{Y}^{-1}\mathbf{W}_i\cdot(Y^+\llbracket\vec{\mathcal{E}}\rrbracket+\hat{n}\times\llbracket\vec{\mathcal{H}}\rrbracket) d\Gamma \\
+    \label{eq:eq831}
+    \int_{\Omega^e}\mathbf{W}_i\cdot\left(\epsilon\frac{\partial\vec{\mathcal{E}}}{\partial t}-\nabla\times\vec{\mathcal{H}}\right)d\Omega=&\oint_{\Gamma^e}\overline{Z}^{-1}\mathbf{W}_i\cdot(Z^+\llbracket\vec{\mathcal{H}}\rrbracket-\hat{n}\times\llbracket\vec{\mathcal{E}}\rrbracket) d\Gamma
+\end{align}
+其中$\overline{Z}=Z+Z^+$，$\overline{Y}=Y+Y^+$。这两个式子是迎风通量时域间断伽辽金法构建的基础。\par
+对于理想导体边界，可以直接将边界上的离散电场值设置为零，也可以通过设置$Z^+=0$，$Y^+=\infty$，$\vec{\mathcal{E}}^+=0$，间接满足边界条件。对于混合边界条件，
+\begin{align}
+    \label{eq:eq832}
+    \hat{n}\times\vec{\mathcal{H}}^+-Y^+\hat{n}\times(\hat{n}\times\vec{\mathcal{E}}^+)=0 \\
+    \label{eq:eq833}
+    \hat{n}\times\vec{\mathcal{E}}^++Z^+\hat{n}\times(\hat{n}\times\vec{\mathcal{H}}^+)=0
+\end{align}
+式\ref{eq:eq830}、式\ref{eq:eq831}中，所有$\vec{\mathbf{H}}^+$的相关项均被$\vec{\mathbf{E}}^+$的相关项抵消，因此可以简单地设置$\vec{\mathbf{E}}^+=0$，$\vec{\mathbf{H}}^+=0$，$Z^+=Z_s$，$Y^+=1/Z_s$，其中$Z_s$是给定的边界阻抗。\par
+使用矢量基函数$\mathbf{N}_j^e$展开$\vec{\mathbf{E}}$和$\vec{\mathbf{H}}$，离散式\ref{eq:eq830}、式\ref{eq:eq831}，可得
+\begin{align}
+    \label{eq:eq834}
+    [T_e^e]\frac{d\{\mathcal{E}^e\}}{dt}-[S_2^e]\{\mathcal{H}^e\}=&\{\mathfrak{L}_e^e\}-[F^e_{ee}]\{\mathcal{E}^e\}-[F^e_{eh}]\{\mathcal{H}^e\} \\
+    \label{eq:eq835}
+    [T_h^e]\frac{d\{\mathcal{H}^e\}}{dt}+[S_2^e]\{\mathcal{E}^e\}=&\{\mathfrak{L}_h^e\}-[F^e_{he}]\{\mathcal{E}^e\}-[F^e_{hh}]\{\mathcal{H}^e\}
+\end{align}
+式中，$[T_e^e]$和$[T_e^e]$的定义由式\ref{eq:eq818}、式\ref{eq:eq819}给出，其余的矩阵和向量的定义如下：
+\begin{align}
+    \label{eq:eq836}
+    S_2^e(i,j)=&\int_{\Omega^e}\mathbf{N}_i^e\cdot\left(\nabla\times\mathbf{N}_j^e\right)d\Omega \\
+    \label{eq:eq837}
+    F^e_{ee}(i,j)=&\oint_{\Gamma^e}\overline{Z}^{-1}(\hat{n}\times\mathbf{N}_i^e)\cdot(\hat{n}\times\mathbf{N}_j^e)d\Gamma \\
+    \label{eq:eq838}
+    F^e_{eh}(i,j)=&\oint_{\Gamma^e}\overline{Z}^{-1}Z^+\mathbf{N}_i^e\cdot(\hat{n}\times\mathbf{N}_j^e)d\Gamma \\
+    \label{eq:eq839}
+    F^e_{he}(i,j)=&\oint_{\Gamma^e}\overline{Y}^{-1}Y^+(\hat{n}\times\mathbf{N}_i^e)\cdot\mathbf{N}_j^ed\Gamma \\
+    \label{eq:eq840}
+    F^e_{hh}(i,j)=&\oint_{\Gamma^e}\overline{Y}^{-1}(\hat{n}\times\mathbf{N}_i^e)\cdot(\hat{n}\times\mathbf{N}_j^e)d\Gamma \\
+    \label{eq:eq841}
+    \mathfrak{L}_e^e(i)=&\oint_{\Gamma^e}\overline{Z}^{-1}[(\hat{n}\times\mathbf{N}_i^e)\cdot(\hat{n}\times\vec{\mathcal{E}}^+)+Z^+\mathbf{N}_i^e\cdot(\hat{n}\times\vec{\mathcal{H}}^+)]d\Gamma \\
+    \label{eq:eq842}
+    \mathfrak{L}_h^e(i)=&\oint_{\Gamma^e}\overline{Y}^{-1}[(\hat{n}\times\mathbf{N}_i^e)\cdot(\hat{n}\times\vec{\mathcal{H}}^+)-Z^+\mathbf{N}_i^e\cdot(\hat{n}\times\vec{\mathcal{E}}^+)]d\Gamma
+\end{align}
+其中$\{\mathfrak{L}_e^e\}$和$\{\mathfrak{L}_h^e\}$包含了紧邻单元外侧的离散场。为了使用中心差分法对式\ref{eq:eq834}、式\ref{eq:eq835}以蛙跳的方式进行时间离散，必须将$\{\mathfrak{L}_e^e\}^{n+1/2}$中的$\vec{\mathcal{E}}^+$用第$n$时间步的值近似，将$\{\mathfrak{L}_h^e\}^{n+1}$中的$\vec{\mathcal{H}}^+$用第$n+1/2$时间步的值近似，这种近似将降低解的精度。\par
+更好的做法是使用龙格-库塔法，对式\ref{eq:eq834}、式\ref{eq:eq835}进行积分，首先将其改写为：
+\begin{align}
+    \label{eq:eq843}
+    \frac{d\{\mathcal{E}^e\}}{dt}=&\{rhsE^e\} \nonumber \\
+                                 =&[T_e^e]^{-1}(\{\mathfrak{L}_e^e\}-[F^e_{ee}]\{\mathcal{E}^e\}-[F^e_{eh}]\{\mathcal{H}^e\}+[S_2^e]\{\mathcal{H}^e\}) \\
+    \label{eq:eq844}
+    \frac{d\{\mathcal{H}^e\}}{dt}=&\{rhsH^e\} \nonumber \\
+                                 =&[T_h^e]^{-1}(\{\mathfrak{L}_h^e\}-[F^e_{he}]\{\mathcal{E}^e\}-[F^e_{hh}]\{\mathcal{H}^e\}-[S_2^e]\{\mathcal{E}^e\})
+\end{align}
+令$\vec{q}=[\{\mathcal{E}^e\},\{\mathcal{H}^e\}]^T$，$\vec{F}=[\{rhsE^e\},\{rhsH^e\}]^T$，则上式写成
+\begin{align}
+    \label{eq:eq845}
+    \frac{d\vec{q}}{dt}=\vec{F}(t,\vec{q})
+\end{align}
+从$\vec{q}^n$求$\vec{q}^{n+1}$的$s$阶显式龙格-库塔法由下式给出：
+\begin{align}
+    \label{eq:eq846}
+    \vec{q}^{n+1}=\vec{q}^{n}+\sum_{i=1}^{s}b_i\vec{q}^{(i)}
+\end{align}
+式中，
+\begin{align}
+    \vec{q}^{(1)}=&\Delta t\vec{F}(t^n,\vec{q}^n) \nonumber \\
+    \vec{q}^{(2)}=&\Delta t\vec{F}(t^n+c_2\Delta t,\vec{q}^n+a_{21}\vec{q}^{(1)}) \nonumber \\
+    \vec{q}^{(3)}=&\Delta t\vec{F}(t^n+c_3\Delta t,\vec{q}^n+a_{31}\vec{q}^{(1)}+a_{32}\vec{q}^{(2)}) \nonumber \\
+    \vdots \nonumber \\
+    \vec{q}^{(s)}=&\Delta t\vec{F}(t^n+c_s\Delta t,\vec{q}^n+a_{s1}\vec{q}^{(1)}+a_{s2}\vec{q}^{(2)}+\cdots+a_{s,s+1}\vec{q}^{(s-1)}) \nonumber
+\end{align}
+其中$a_{ij}$、$b_{i}$、$c_{j}$是参数，决定了此方法的准确度和稳定特性。\par
+使用此显式龙格-库塔法，可以逐个单元、逐个时间步地计算电场和磁场，每一步包含四个子步骤，每个子步骤需要逐个计算整个求解域中的每个单元的电场和磁场，计算量是钟欣桐两时域间断伽辽金法的四倍。\par
+由于使用了高阶时间积分，时域间断伽辽金解以$O(h^{p+1})$收敛。\par
+中心通量时域间断伽辽金法的能量守恒，所以时间步进中没有数值耗散，迎风通量时域间断伽辽金法有数值耗散，当基函数阶数增加时，这种数值耗散会显著减小。\par
+迎风通量时域间断伽辽金法也是有条件稳定的，最大时间步受限于整个计算区域中的最小单元，此问题可以通过使用局部时间步进改善，即基于单元的大小将计算区域划分成不同的区域，根据区域中的最小单元为每一个区域定义一个局部时间步大小。在计算某个区域的场时，所需要的通量可以通过对其相邻区域中当前求出的场插值或外推得到。如果较大时间步是最小时间步的倍数，则整个计算区域中的时间推进可以与最大的时间步同步，实现更容易。
+\subsection{吸收边界条件}
+\subsubsection{二维吸收边界条件}
+第\ref{sec:sec6}章节中描述的一阶吸收条件边界\ref{eq:eq592}、二阶吸收条件边界\ref{eq:eq594}也可用于有限元法中。但这些条件都是针对平面边界推导的。在有限元法中，可以使用曲面边界截断网格，可以显著提高吸收性能，可由波函数解的渐近形式推导得到。\par
+对于二维情况，远离源处的场表示为：
+\begin{align}
+    \label{eq:eq847}
+    \varphi(\rho,\phi)\approx A(\phi)\frac{e^{-jk\rho}}{sqrt{\rho}}
+\end{align}
+对$\rho$求偏导，可得\textbf{\color{blue}{一阶吸收边界条件}}：
+\begin{align}
+    \label{eq:eq848}
+    \frac{\partial\varphi}{\partial\rho}\approx\left(-jk-\frac{1}{2\rho}\right)A(\phi)\frac{e^{-jk\rho}}{\sqrt{\rho}}=\left(-jk-\frac{1}{2\rho}\right)\varphi
+\end{align}
+当$\rho\to\infty$时，上式简化为式\ref{eq:eq592}。\par
+为了得到更准确的高阶吸收边界条件，使用更精准的渐进形式的波函数解：
+\begin{align}
+    \label{eq:eq849}
+    \varphi(\rho,\phi)\approx\frac{e^{-jk\rho}}{\sqrt{\rho}}\sum_{n=0}^{\infty}\frac{a_n(\phi)}{\rho^n}
+\end{align}
+代入亥姆霍兹方程：
+\begin{align}
+    \label{eq:eq850}
+    \frac{1}{\rho}\frac{\partial}{\partial\rho}\left(\rho\frac{\partial\varphi}{\partial\rho}\right)+\frac{1}{\rho^2}\frac{\partial^2\varphi}{\partial\phi^2}+k^2\varphi=0
+\end{align}
+得到$a_n(\phi)$的递推关系：
+\begin{align}
+    \label{eq:eq851}
+    -2jk(n+1)a_{n+1}(\phi)=\left(n+\frac{1}{2}\right)^2a_n+\frac{\partial^2a_n}{\partial\phi^2}
+\end{align}
+将式\ref{eq:eq849}对$\rho$求偏导，并忽略$O(\rho^{-9/2})$阶的项，可得\textbf{\color{blue}{二阶吸收边界条件}}：
+\begin{align}
+    \label{eq:eq852}
+    \frac{\partial\varphi}{\partial\rho}=&\left(-jk-\frac{1}{2\rho}\right)\varphi-\frac{e^{-jk\rho}}{\sqrt{\rho}}\sum_{n=1}^{\infty}\frac{na_n(\phi)}{\rho^{n+1}} \nonumber \\
+                                        =&\left(-jk-\frac{1}{2\rho}+\frac{1}{8jk\rho^2}+\frac{1}{8k^2\rho^3}\right)\varphi+\left(\frac{1}{2jk\rho^2}+\frac{1}{2k^2\rho^3}\right)\frac{\partial^2\varphi}{\partial\phi^2}+O\left(\frac{1}{\rho^{9/2}}\right) \nonumber \\
+                                        \approx&\left(-jk-\frac{1}{2\rho}+\frac{1}{8jk\rho^2}+\frac{1}{8k^2\rho^3}\right)\varphi+\left(\frac{1}{2jk\rho^2}+\frac{1}{2k^2\rho^3}\right)\frac{\partial^2\varphi}{\partial\phi^2}
+\end{align}
+定义一个算子序列：
+\begin{align}
+    \label{eq:eq853}
+    \mathcal{B}_m=\left(\frac{\partial}{\partial\rho}+jk+\frac{4m-3}{2\rho}\right)\mathcal{B}_{m-1}
+\end{align}
+且有$\mathcal{B}_0=1$，可以根据递推法证明算子$\mathcal{B}_m$可以消除式\ref{eq:eq849}的前$m$项，最后得到
+\begin{align}
+    \label{eq:eq854}
+    \mathcal{B}_m\varphi=O(\rho^{-2m-1/2})
+\end{align}
+上式可以系统地推导高阶吸收边界条件。二阶边界条件使用最广泛，因为其在算法上容易实现，且可以保留有限元矩阵的对称性和稀疏性。\par
+对于非圆形边界，吸收边界条件通过下面的替换获得：
+\begin{align}
+    \label{eq:eq855}
+    \frac{\partial}{\partial \rho}\to\frac{\partial}{\partial n}\qquad\frac{1}{\rho}\to\kappa(s)\qquad\frac{1}{\rho^2}\frac{\partial^2}{\partial\phi^2}\to\frac{\partial^2}{\partial s^2}
+\end{align}
+式中，$s$表示沿边界度量的长度，$\kappa(s)$表示边界的曲率，由此得到一阶和二阶吸收边界条件为：
+\begin{align}
+    \label{eq:eq856}
+    \frac{\partial\varphi}{\partial n}\approx&\left(-jk-\frac{\kappa}{2}\right)\varphi \\
+    \label{eq:eq857}
+    \frac{\partial\varphi}{\partial n}\approx&\left(-jk-\frac{\kappa}{2}+\frac{\kappa^2}{8jk}+\frac{\kappa^3}{8k^2}\right)\varphi+\left(\frac{1}{2jk}+\frac{\kappa}{2k^2}\right)\frac{\partial^2}{\partial s^2}
+\end{align}
+式\ref{eq:eq856}可用于非光滑边界；式\ref{eq:eq857}一般选择光滑边界，以保证有限元矩阵保持原有的对称性和稀疏性。
+\subsubsection{理想匹配层}
+令$\mathbf{E}^c$、$\mathbf{H}^c$表示式\ref{eq:eq600}至式\ref{eq:eq603}中的修正变形麦克斯韦方程的变量，定义新的场量$\mathbf{E}^a$、$\mathbf{H}^a$：
+\begin{align}
+    \label{eq:eq858}
+    \mathbf{E}^a=
+    \left[
+        \begin{matrix}
+            s_x & 0 & 0 \\
+            0 & s_y & 0 \\
+            0 & 0 & s_z \\
+        \end{matrix}
+    \right]
+    \cdot\mathbf{E}^c
+    \qquad
+    \mathbf{H}^a=
+    \left[
+        \begin{matrix}
+            s_x & 0 & 0 \\
+            0 & s_y & 0 \\
+            0 & 0 & s_z \\
+        \end{matrix}
+    \right]
+    \cdot\mathbf{H}^c
+\end{align}
+则式\ref{eq:eq600}至式\ref{eq:eq603}写成
+\begin{align}
+    \label{eq:eq859}
+    \nabla \times \mathbf{E}^c&=-jw\mu\overline{\Lambda}\cdot\mathbf{H}^a \\
+    \label{eq:eq860}
+    \nabla \times \mathbf{H}^c&=jw\epsilon\overline{\Lambda}\cdot\mathbf{E}^a \\
+    \label{eq:eq861}
+    \nabla \cdot (\epsilon\overline{\Lambda}\cdot\mathbf{E}^a)&=0 \\
+    \label{eq:eq862}
+    \nabla \cdot (\mu\overline{\Lambda}\cdot\mathbf{H}^a)&=0
+\end{align}
+其中，
+\begin{align}
+    \label{eq:eq863}
+    \overline{\Lambda}=
+    \left[
+        \begin{matrix}
+            \frac{s_ys_z}{s_x} & 0 & 0 \\
+            0 & \frac{s_zs_x}{s_y} & 0 \\
+            0 & 0 & \frac{s_xs_y}{s_z} \\
+        \end{matrix}
+    \right]
+\end{align}
+式\ref{eq:eq859}至式\ref{eq:eq862}可认为是介电常数张量为$\epsilon\overline{\Lambda}$、磁导率张量为$\mu\overline{\Lambda}$的各向异性媒质中的常规麦克斯韦方程。它们由式\ref{eq:eq600}至式\ref{eq:eq603}直接推导而来，因此由他们定义的各项异性媒质同样对任意频率、极化、入射角都不产生反射。\par
+使用理想匹配层可以为开放空间电磁问题的仿真设置图\ref{fig:fig53}所示的计算空间，有限元法中可以使用非矩形理想匹配层。对于数值仿真，理想匹配层依旧需要一个外边界来截断，通常使用理想导体面。\par
+与吸收边界条件相比，理想匹配层的优势在于可以通过增加层数来提升吸收效果，或者与之等效地增加理想匹配层的导电率和网格密度。
+\section{\textsf{矩量法}}
+\subsection{概述}
+对于积分方程
+\begin{align}
+    \label{eq:eq864}
+    \vec{\mathcal{L}} \varphi=f
+\end{align}
+式中，$\vec{\mathcal{L}}$为积分算子，$f$为已知的积分方程激励项，$\varphi$为需要求解的未知项，选择一组基函数对解进行近似：
+\begin{align}
+    \label{eq:eq865}
+    \varphi=\sum_{n=1}^{N}c_nv_n
+\end{align}
+代入式\ref{eq:eq864}，并采用一组函数$w_m(m=1,2,\cdots,N)$(\textbf{\color{blue}{权函数}})对其进行检验，在求解区域内积分，得
+\begin{align}
+    \label{eq:eq866}
+    \sum_{n=1}^{N}c_n\int_{\Omega}w_m\vec{\mathcal{L}}(v_n)d\Omega=\int_{\Omega}w_mfd\Omega\qquad m=1,2,\cdots,N
+\end{align}
+将上式写成矩阵形式：
+\begin{align}
+    \label{eq:eq867}
+    \sum_{n=1}^{N}c_n<w_m,\vec{\mathcal{L}}(v_n)>=<w_m,f>\qquad m=1,2,\cdots,N
+\end{align}
+其中$<\cdot>$为积分记号。令
+\begin{align}
+    \label{eq:eq868}
+    A_{mn}=<w_m,\vec{\mathcal{L}}(v_n)>\qquad b_m=<w_m,f>\qquad m,n=1,2,\cdots,N
+\end{align}
+则式\ref{eq:eq867}写成：
+\begin{align}
+    \label{eq:eq868}
+    [A]\{c\}=\{b\}
+\end{align}
+式中，$[A]$、$\{b\}$、$\{c\}$分别称为\textbf{\color{blue}{系数矩阵}}、\textbf{\color{blue}{源向量}}、\textbf{\color{blue}{未知向量}}。\par
+上述求解过程称为\textbf{\color{blue}{矩量法(MoM)}}，同样应用了加权残差法，与有限元法不同的是其考虑积分算子$\vec{\mathcal{L}}$，其中包含格林函数。在有限元法中，由于要对基函数进行微分运算，因此基函数必须至少是一阶(线性)函数，检验函数通常选择与基函数相同；在矩量法中，由于只对基函数进行积分运算，其选择更宽松，最简单的选择是零阶基函数，即常数，检验函数的选择同样宽松，通常选择$\delta$函数或零阶函数。
+\subsection{静电场矩量法分析}
+考虑一块金属导体，其表面记为$S$，$\varphi(\vec{r})$是面电荷产生的电势，求解其金属表面的面电荷密度$\varrho _s(\vec{r}')$。$\varphi(\vec{r})$与$\varrho _s(\vec{r}')$的关系由下式给出：
+\begin{align}
+    \label{eq:eq869}
+    \varphi(\vec{r})=\iint_SG(\vec{r},\vec{r}')\varrho _s(\vec{r}')dS'
+\end{align}
+其中$G(\vec{r},\vec{r}')$是格林函数(点源响应)：
+\begin{align}
+    \label{eq:eq870}
+    G(\vec{r},\vec{r}')=\frac{1}{4\pi\epsilon|\vec{r}-\vec{r}'|}
+\end{align}
+在金属表面上，$\varphi(\vec{r})=\Phi$为常数，则有
+\begin{align}
+    \label{eq:eq871}
+    \Phi=\iint_SG(\vec{r},\vec{r}')\varrho _s(\vec{r}')dS'\qquad\vec{r}\in S
+\end{align}
+$\Phi$已知，$G(\vec{r},\vec{r}')$已知，求解$\varrho _s(\vec{r}')$。\par
+此时函数$\varrho _s(\vec{r}')$具有无穷自由度，即$\varrho _s(\vec{r}')$是一个在相应的无穷维空间中的向量函数，无法由计算机处理，可以用矩量法在有限维子空间中对其解进行近似。首先选择一组基函数对$\varrho _s(\vec{r}')$进行近似：
+\begin{align}
+    \label{eq:eq872}
+    \varrho _s(\vec{r}')=\sum_{n=1}^{N}c_nv_n(\vec{r}')
+\end{align}
+此时，$\varrho _s(\vec{r}')$变成了一个具有N维自由度的未知向量。\par
+基函数$v_n(\vec{r}')$分为两大类：（1）\textbf{\color{blue}{全域基函数}}：定义域是整个积分区域用于具有规则形状的表面；（2）\textbf{\color{blue}{分域基函数}}：将整个积分表面分解为很多个小的面单元，在每个面单元上使用简单形式的函数作为基函数。\par
+将式\ref{eq:eq872}代入式\ref{eq:eq871}，得到一个有限自由度的方程
+\begin{align}
+    \label{eq:eq877}
+    \Phi=\sum_{n=1}^{N}c_n\iint_SG(\vec{r},\vec{r}')\varrho _s(\vec{r}')dS'\qquad\vec{r}\in S
+\end{align}
+选择一组函数$w_1{\vec{r}},w_2{\vec{r}},\cdots,w_N{\vec{r}}$同时乘以方程两边，然后在整个$S$面积分，得到
+\begin{align}
+    \label{eq:eq873}
+    \iint_Sw_m(\vec{r})\Phi dS=\sum_{n=1}^{N}c_n\iint_Sw_m(\vec{r})\iint_SG(\vec{r},\vec{r}')\varrho _s(\vec{r}')dS'dS\qquad m=1,2,\cdots,N
+\end{align}
+将上式写成
+\begin{align}
+    \label{eq:eq874}
+    \sum_{n=1}^{N}A_{mn}c_n=b_m\qquad m=1,2,\cdots,N
+\end{align}
+将金属导体表面分成$N$个小三角形或四边形单元，若单元足够小，每个面元上的电荷密度$\varrho _s(\vec{r}')$可认为是常数，相当于使用下面公式定义的零阶基函数(\textbf{\color{blue}{脉冲基函数}})：
+\begin{align}
+    \label{eq:eq875}
+    v_n(\vec{r}')=
+    \left\{
+        \begin{matrix}
+            1 & \vec{r}'\in s_n \\
+            0 & others \\
+        \end{matrix}
+    \right.
+\end{align}
+式中$s_n$为第$n$个面元。选择检验函数为
+\begin{align}
+    \label{eq:eq876}
+    w_m(\vec{r})=\delta(\vec{r}-\vec{r}_m)
+\end{align}
+$\vec{r}_m$为第$m$个面元的中心。这种选择称为\textbf{\color{blue}{点配置}}，其等效于在每个面元的中心满足式\ref{eq:eq877}。此时
+\begin{align}
+    \label{eq:eq878}
+    A_{mn}=\iint_{s_n}G(\vec{r}_m,\vec{r}')dS'=\left\{
+        \begin{matrix}
+            \frac{1}{4\pi\epsilon}\frac{s_n}{|\vec{r}_m-\vec{r}_n|} & m\neq n \\
+            \frac{1}{2\epsilon}\sqrt{\frac{s_n}{\pi}} & m=n \\
+        \end{matrix}
+    \right.\qquad b_m=\Phi
+\end{align}
+若选择零阶函数作为检验函数，即
+\begin{align}
+    \label{eq:eq879}
+    w_m(\vec{r})=
+    \left\{
+        \begin{matrix}
+            1 & \vec{r}\in s_m \\
+            0 & others \\
+        \end{matrix}
+    \right.
+\end{align}
+这种选择称为\textbf{\color{blue}{子域配置}}，其等效于在平均意义上，整个面元满足式\ref{eq:eq877}。此时
+\begin{align}
+    \label{eq:eq880}
+    A_{mn}=\iint_{s_m}\iint_{s_n}G(\vec{r}_m,\vec{r}')dS'dS\qquad b_{m}=\Phi_{s_m}
+\end{align}
+此时稀疏矩阵$[A]$是对称的。\\
+\\
+矩量法分析的基本步骤：\\
+（1）建立所考虑问题的积分方程；\\
+（2）将未知解用一组基函数展开；\\
+（3）选择一组检验函数，将积分方程转化为矩阵方程；\\
+（4）求解矩阵方程，得到展开系数，计算所需的物理量。\\
+\\
+矩量法和有限元法的三个主要区别：\\
+（1）矩量法中的问题维数比有限元法少一维，减少了未知数数目(对于三维分析，有限元法需要对体积域进行离散，而矩量法仅需对表面域进行离散)；\\
+（2）矩量法中，积分方程包含了恰当的格林函数，格林函数已经考虑了无穷远处的场，因此在矩量法求解中，无需使用任何近似的吸收边界条件或理想匹配层；\\
+（3）由于使用了格林函数，矩量法的系数矩阵为满阵，而有限元矩阵是可以更高效存储和求解的极度稀疏矩阵。
+\subsection{二维分析}
+\subsubsection{积分方程的建立}
+考虑自由空间中的源$f(\rho)$产生的标量波，而在此空间中有一个形状任意的散射体，假设源和物体沿$z$轴无变化，如图\ref{fig:fig63}所示。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{自由空间中的二维散射体.PNG}
+    \caption{自由空间中的二维散射体}
+    \label{fig:fig63}
+\end{figure}
+\\
+在散射体外部区域$\Omega_{\infty}$中，波函数$\varphi(\vec{\rho})$满足非齐次亥姆霍兹方程：
+\begin{align}
+    \label{eq:eq881}
+    \nabla^2\varphi(\vec{\rho})+k^2_0\varphi(\vec{\rho})=f(\vec{\rho})\qquad\vec{\rho}\in\Omega_{\infty}
+\end{align}
+其中$k_0$为波数。波函数也应该满足辐射条件：
+\begin{align}
+    \label{eq:eq882}
+    \sqrt{\rho}\left[\frac{\partial\varphi(\vec{\rho})}{\partial\rho}+jk_0\varphi(\vec{\rho})\right]=0\qquad\rho\to\infty
+\end{align}
+上式表示波向外传播到无穷远处而没有反射。引入自由空间格林函数$G_0$，
+\begin{align}
+    \label{eq:eq884}
+    G_0(\vec{\rho},\vec{\rho}')=\frac{1}{4j}H_0^{(2)}(k_0|\vec{\rho}-\vec{\rho}'|)
+\end{align}
+其中$H_0^{(2)}$为零阶第二类汉克尔函数。格林函数满足辐射条件，同时也满足非齐次亥姆霍兹方程：
+\begin{align}
+    \label{eq:eq883}
+    \nabla^2G_0(\vec{\rho},\vec{\rho}')+k^2_0G_0(\vec{\rho},\vec{\rho}')=-\delta(\vec{\rho}-\vec{\rho}')
+\end{align}
+对式\ref{eq:eq881}乘以$G_0$，对式\ref{eq:eq883}乘以$\varphi$，二者相减，并在整个外部区域积分，得
+\begin{align}
+    \label{eq:eq885}
+     &\iint_{\Omega_{\infty}}\left[G_0(\vec{\rho},\vec{\rho}')\nabla^2\varphi(\vec{\rho})-\varphi(\vec{\rho})\nabla^2G_0(\vec{\rho},\vec{\rho}')\right]d\Omega \nonumber \\
+    =&\iint_{\Omega_{S}}G_0(\vec{\rho},\vec{\rho}')f(\vec{\rho})d\Omega+\iint_{\Omega_{\infty}}\varphi(\vec{\rho})\delta(\vec{\rho}-\vec{\rho}')d\Omega
+\end{align}
+式中，$\Omega_S$表示源所在的区域，此时$f(\vec{\rho})\neq 0$。应用第二标量格林公式：
+\begin{align}
+    \iint _{\Omega} (a \nabla^2 b - b \nabla^2 a)d\Omega=\oint _{\Gamma } (a\frac{\partial b}{\partial n}-b\frac{\partial a}{\partial n})d\Gamma
+\end{align}
+其中$\Gamma$是$\Omega$的边界，可得：
+\begin{align}
+    \label{eq:eq886}
+     &\oint_{\Gamma_O}\left[\varphi(\vec{\rho})\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n}-G_0(\vec{\rho},\vec{\rho}')\frac{\partial \varphi(\vec{\rho})}{\partial n}\right]d\Gamma+\oint_{\Gamma_{\infty}}\left[G_0(\vec{\rho},\vec{\rho}')\frac{\partial \varphi(\vec{\rho})}{\partial n}-\varphi(\vec{\rho})\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n}\right]d\Gamma \nonumber \\
+    =&\iint_{\Omega_S}G_0(\vec{\rho},\vec{\rho}')f(\vec{\rho})d\Omega+\iint_{\Omega_{\infty}}\varphi(\vec{\rho})\delta(\vec{\rho}-\vec{\rho}')d\Omega
+\end{align}
+式中，$\Gamma_O$表示物体的边界，其单位法向矢量指向$\Omega_{\infty}$，$\Gamma_{\infty}$表示无穷远处的边界。由于$G_0$和$\varphi$都满足辐射条件，因此，$\Gamma_{\infty}$上的积分为零。交换$\vec{\rho}$和$\vec{\rho}'$，利用$G_0$的对称性，并由$\delta$函数的定义，得
+\begin{align}
+    \label{eq:eq887}
+     &\oint_{\Gamma_O}\left[\varphi(\vec{\rho}')\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n}-G_0(\vec{\rho},\vec{\rho}')\frac{\partial \varphi(\vec{\rho}')}{\partial n}\right]d\Gamma'-\iint_{\Omega_S}G_0(\vec{\rho},\vec{\rho}')f(\vec{\rho}')d\Omega' \nonumber \\
+    =&\left\{
+        \begin{matrix}
+            \varphi(\vec{\rho}) & \vec{\rho}\in\Omega_{\infty} \\
+            0                   & \vec{\rho}\in\Omega_{O} \\
+        \end{matrix}
+    \right.
+\end{align}
+当散射体不存在时，边界积分项为零，即
+\begin{align}
+    \label{eq:eq888}
+    \varphi^{inc}(\vec{\rho})=-\iint_{\Omega_S}G_0(\vec{\rho},\vec{\rho}')f(\vec{\rho}')d\Omega'
+\end{align}
+此项称为入射波，记为$\varphi^{inc}(\vec{\rho})$，因此式\ref{eq:eq887}写为
+\begin{align}
+    \label{eq:eq889}
+    \oint_{\Gamma_O}\left[\varphi(\vec{\rho}')\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n'}-G_0(\vec{\rho},\vec{\rho}')\frac{\partial \varphi(\vec{\rho}')}{\partial n'}\right]d\Gamma'+\varphi^{inc}(\vec{\rho})
+    =\left\{
+        \begin{matrix}
+            \varphi(\vec{\rho}) & \vec{\rho}\in\Omega_{\infty} \\
+            0                   & \vec{\rho}\in\Omega_{O} \\
+        \end{matrix}
+    \right.
+\end{align}
+上式为标量惠更斯原理的数学表示，表明如果一个区域边界上的场值及其法向导数值已知，则该区域内任何位置的场值均可以求出。上式中边界积分项对应散射波。\par
+将式\ref{eq:eq889}应用于边界$\Gamma_O$，但当$\rho$位于边界$\Gamma_O$时，由于$H_0^{(2)}(k_0|\rho-\rho'|)$及其导数在自变量为零时奇异，因此式\ref{eq:eq889}中的边界积分项在$\rho=\rho'$处奇异。为此，将$\Gamma_O$变为如图\ref{fig:fig64}所示的形状：
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{使rho位于Omega_O内部的变形曲线Gamma_O.PNG}
+    \caption{使$\vec{\rho}$位于$\Omega_O$内部的变形曲线$\Gamma_O$}
+    \label{fig:fig64}
+\end{figure}
+\\
+它包含两部分，一部分为$\Gamma_O-2\varepsilon$，另一部分为圆心位于$\rho$，半径为$\varepsilon$的半圆，$\vec{\rho}\in\Omega_O$，令$\varepsilon\to 0$，则有
+\begin{align}
+    \label{eq:eq890}
+    \oint_{\Gamma_O}\left[\bullet\right]d\Gamma'=&\lim_{\varepsilon\to 0}\left\{\int_{\Gamma_O-2\varepsilon}\left[\bullet\right]d\Gamma'+\int_0^{\pi}\left[\bullet\right]\varepsilon d\phi\right\} \nonumber \\
+                                                =&\bbint_{\Gamma_O}\left[\bullet\right]d\Gamma'+\frac{1}{4j}\lim_{\varepsilon\to 0}\int_0^{\pi}\left[\varphi(\vec{\rho}')\frac{\partial H_0^{(2)}(k\varepsilon)}{\partial \varepsilon}-H_0^{(2)}(k\varepsilon)\frac{\partial \varphi(\vec{\rho}')}{\partial n'}\right]\varepsilon d\phi \nonumber \\
+                                                =&\bbint_{\Gamma_O}\left[\bullet\right]d\Gamma'-\frac{1}{2}\varphi(\vec{\rho})
+\end{align}
+上式中应用了小宗量近似式：
+\begin{align}
+    \label{eq:eq891}
+    H_0^{(2)}(z)\approx 1-j\frac{2}{\pi}\ln\left(\frac{\gamma z}{2}\right)\qquad z\to 0
+\end{align}
+其中$\gamma\approx 1.7810724$。且令
+\begin{align}
+    \label{eq:eq892}
+    \bbint_{\Gamma_O}\left[\bullet\right]d\Gamma'=\lim_{\varepsilon\to 0}\int_{\Gamma_O-2\varepsilon}\left[\bullet\right]d\Gamma'
+\end{align}
+因此，将式\ref{eq:eq889}应用于边界$\Gamma_O$时，得到
+\begin{align}
+    \label{eq:eq893}
+    \bbint_{\Gamma_O}\left[\varphi(\vec{\rho}')\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n'}-G_0(\vec{\rho},\vec{\rho}')\frac{\partial \varphi(\vec{\rho}')}{\partial n'}\right]d\Gamma'+\varphi^{inc}(\vec{\rho})=\frac{1}{2}\varphi(\vec{\rho})\qquad\vec{\rho}\in\Gamma_O
+\end{align}
+
+式\ref{eq:eq893}为矩量法求解亥姆霍兹方程提供了所需要的积分方程，由于边界上的$\varphi$和$\partial\varphi/\partial n$均未知，因此除了式\ref{eq:eq893}，还需要关于这两个量之间的另一个关系式。对于导体散射体，第二个条件来自于导体表面的边界条件，对于介质散射体，第二个条件来自于散射体内部的透射场表达式。
+\subsubsection{导电柱体的散射}
+考虑一无限长导电柱体的电磁散射问题。对于TM极化入射的情形，电场满足亥姆霍兹方程：
+\begin{align}
+    \label{eq:eq894}
+    \nabla^2E_z(\vec{\rho})+k^2_0E_z(\vec{\rho})=jk_0Z_0J_{i,z}(\vec{\rho})\qquad\vec{\rho}\in\Omega_{\infty}
+\end{align}
+式中，$J_{i,z}(\vec{\rho})$为入射场的源，在柱体表面有
+\begin{align}
+    \label{eq:eq895}
+    E_z(\vec{\rho}')=&0\qquad\vec{\rho}'\in\Gamma_O \\
+    \label{eq:eq896}
+    \frac{\partial E_z(\vec{\rho}')}{\partial n'}=&jk_0Z_0J_{s,z}(\vec{\rho}')\qquad\vec{\rho}'\in\Gamma_O
+\end{align}
+式中，$J_{s,z}(\vec{\rho}')$为入射场在导体表面所感应的面电流密度。代入式\ref{eq:eq893}，可得\textbf{\color{blue}{电场积分方程(EFIE)}}：
+\begin{align}
+    \label{eq:eq897}
+    E_z^{inc}(\vec{\rho})-jk_0Z_0\int_{\Gamma_O}G_0(\vec{\rho},\vec{\rho}')J_{s,z}(\vec{\rho}')d\Gamma'=0\qquad\vec{\rho}'\in\Gamma_O
+\end{align}
+将$\Gamma_O$分成小段，每小段上的面电流密度近似为一个常数，如图\ref{fig:fig65}所示：
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{将外围边界Gamma_O分成小段.PNG}
+    \caption{将外围边界$\Gamma_O$分成小段}
+    \label{fig:fig65}
+\end{figure}
+\\
+则用点匹配法可得
+\begin{align}
+    \label{eq:eq898}
+    \sum_{n=1}^{N}Z_{mn}J_{z,n}=V_m\qquad m=1,2,\cdots,N
+\end{align}
+式中，
+\begin{align}
+    \label{eq:eq899}
+    Z_{mn}=&jk_0Z_0\int_{s_n}G_0(\vec{\rho}_m,\vec{\rho}')d\Gamma' \nonumber \\
+          =&\left\{
+        \begin{matrix}
+            \frac{k_0Z_0s_n}{4}H_0^{(2)}(k_0|\vec{\rho}_m-\vec{\rho}'|) & m\neq n \\
+            \frac{k_0Z_0s_n}{4}H_0^{(2)}\left[1-j\frac{2}{\pi}\ln\left(\frac{k_0\gamma s_n}{4e}\right)\right] & m=n \\
+        \end{matrix}
+    \right. \\
+    \label{eq:eq900}
+    V_m=&E^{inc}_z(\vec{\rho}_m)
+\end{align}
+其中，$s_n$为第$n$个单元，$\vec{\rho}_m$为第$m$段的中心。当$m\neq n$时，积分使用中点积分公式计算，当$m=n$时，使用汉克尔函数的小宗量近似计算，$e\approx 2.7183$。\par
+求解这组方程可得面电流密度，从而由式\ref{eq:eq889}求出任意点处的场，计算公式为：
+\begin{align}
+    \label{eq:eq901}
+    E_z(\vec{\rho})=E_z^{inc}(\vec{\rho})-jk_0Z_0\oint_{\Gamma_O}G_0(\vec{\rho},\vec{\rho}')J_{s,z}(\vec{\rho}')d\Gamma'\qquad\vec{\rho}\in\Omega_{\infty}
+\end{align}
+\\
+
+对于TE极化入射的情形，磁场满足亥姆霍兹方程：
+\begin{align}
+    \label{eq:eq902}
+    \nabla^2H_z(\vec{\rho})+k^2_0H_z(\vec{\rho})=-[\nabla\times\mathbf{J}_i(\vec{\rho})]_z\qquad\vec{\rho}\in\Omega_{\infty}
+\end{align}
+式中，$\nabla\times\mathbf{J}_i(\vec{\rho})$为入射场的源，在柱体表面有
+\begin{align}
+    \label{eq:eq903}
+    H_z(\vec{\rho}')=&-J_{s,t}(\vec{\rho}')\qquad\vec{\rho}'\in\Gamma_O \\
+    \label{eq:eq904}
+    \frac{\partial H_z(\vec{\rho}')}{\partial n'}=&0\qquad\vec{\rho}'\in\Gamma_O
+\end{align}
+式中，$J_{s,t}(\vec{\rho}')$为入射场在导体表面所感应的面电流密度。代入式\ref{eq:eq893}，可得\textbf{\color{blue}{磁场积分方程(MFIE)}}：
+\begin{align}
+    \label{eq:eq905}
+    H_z^{inc}(\vec{\rho})-\bbint_{\Gamma_O}\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n'}J_{s,t}(\vec{\rho}')d\Gamma'=-\frac{1}{2}J_{s,t}(\vec{\rho})\qquad\vec{\rho}'\in\Gamma_O
+\end{align}
+将$\Gamma_O$分成小段，每小段上的面电流密度近似为一个常数，如图\ref{fig:fig65}所示。则用点匹配法可得
+\begin{align}
+    \label{eq:eq906}
+    \sum_{n=1}^{N}Z_{mn}J_{t,n}=V_m\qquad m=1,2,\cdots,N
+\end{align}
+式中，
+\begin{align}
+    \label{eq:eq907}
+    Z_{mn}=&\bbint_{s_n}\frac{\partial G_0(\vec{\rho}_m,\vec{\rho}')}{\partial n'}d\Gamma'-\frac{1}{2}\delta_{mn} \nonumber \\
+          =&\left\{
+        \begin{matrix}
+            \frac{k_0s_n}{4j}H_1^{(2)}(k_0|\vec{\rho}_m-\vec{\rho}_n|)\frac{\hat{n}'\cdot(\vec{\rho}_m-\vec{\rho}_n)}{|\vec{\rho}_m-\vec{\rho}_n|} & m\neq n \\
+            -\frac{1}{2} & m=n \\
+        \end{matrix}
+    \right. \\
+    \label{eq:eq908}
+    V_m=&H^{inc}_z(\vec{\rho}_m)
+\end{align}
+求解这组方程可得面电流密度，从而由式\ref{eq:eq889}求出任意点处的场，计算公式为：
+\begin{align}
+    \label{eq:eq909}
+    H_z(\vec{\rho})=H_z^{inc}(\vec{\rho})-\oint_{\Gamma_O}\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n'}J_{s,t}(\vec{\rho}')d\Gamma'\qquad\vec{\rho}\in\Omega_{\infty}
+\end{align}
+\subsubsection{导电条带的散射}
+考虑一无限长厚度为零的导电条带的电磁散射问题。对于TM极化入射的情形，以水平条带为例，此时$\Gamma_O$包含上表面$\Gamma^+$、下表面$\Gamma^-$，因此电场积分方程\ref{eq:eq897}写成
+\begin{align}
+    \label{eq:eq910}
+     &E_z^{inc}(\vec{\rho})-jk_0Z_0\int_{\Gamma_O}G_0(\vec{\rho},\vec{\rho}')J_{s,z}(\vec{\rho}')d\Gamma' \nonumber \\
+    =&E_z^{inc}(\vec{\rho})-jk_0Z_0\int_{\Gamma^+}G_0(\vec{\rho},\vec{\rho}')J^+_{s,z}(\vec{\rho}')d\Gamma'-jk_0Z_0\int_{\Gamma^-}G_0(\vec{\rho},\vec{\rho}')J^-_{s,z}(\vec{\rho}')d\Gamma' \nonumber \\
+    =&E_z^{inc}(\vec{\rho})-jk_0Z_0\int_{\Gamma}G_0(\vec{\rho},\vec{\rho}')J^t_{s,z}(\vec{\rho}')d\Gamma' \nonumber \\
+    =&0\qquad\vec{\rho}'\in\Gamma
+\end{align}
+其中，$\Gamma=\Gamma^+=\Gamma^-$为条带的一个表面，$J^t_{s,z}=J^+_{s,z}+J^-_{s,z}$是上、下表面电流密度之和。之后的求解过程同上节所述。
+对于TE极化入射的情形，考虑一个位于$x$轴，表面垂直于$y$轴的水平条带，由于$\partial G_0/\partial y'=-\partial G_0/\partial y$，式\ref{eq:eq909}写为
+\begin{align}
+    \label{eq:eq911}
+    H_z(\vec{\rho})=H_z^{inc}(\vec{\rho})+\int_{\Gamma^+}\frac{\partial G_0(\vec{\rho},x')}{\partial y}J^+_{s,t}(x')dx'-\int_{\Gamma^-}\frac{\partial G_0(\vec{\rho},x')}{\partial y}J^-_{s,t}(x')dx'
+\end{align}
+上式对$y$求导，得
+\begin{align}
+    \label{eq:eq912}
+    E_x(\vec{\rho})=&E_x^{inc}(\vec{\rho})-\frac{jZ_0}{k_0}\left[\int_{\Gamma^+}\frac{\partial^2 G_0(\vec{\rho},x')}{\partial y^2}J^+_{s,t}(x')dx'-\int_{\Gamma^-}\frac{\partial^2 G_0(\vec{\rho},x')}{\partial y^2}J^-_{s,t}(x')dx'\right] \nonumber \\
+                   =&E_x^{inc}(\vec{\rho})+\frac{jZ_0}{k_0}\int_{\Gamma^+}\left(k_0^2+\frac{\partial^2}{\partial x^2}\right)G_0(\vec{\rho},x')\left[J^+_{s,t}(x')-J^-_{s,t}(x')\right]dx'
+\end{align}
+令$\vec{\rho}$在条带上，可得积分方程
+\begin{align}
+    \label{eq:eq913}
+    E_x^{inc}(x)=\frac{Z_0}{4k_0}\int_{-w/2}^{w/2}\left(k_0^2+\frac{\partial^2}{\partial x^2}\right)H_0^{(2)}(k_0|x-x'|)J^t_{s,t}(x')dx'\qquad x\in(-w/2,w/2)
+\end{align}
+式中，$w$为条带宽度，$J^t_{s,t}=J^+_{s,t}-J^-_{s,t}$(条带上下表面切向方向相反，这里实际表示上下表面电流之和)，使用脉冲基函数、点匹配法对上式进行矩量法求解，得到与式\ref{eq:eq906}类似的方程，其中
+\begin{align}
+    \label{eq:eq914}
+    Z_{mn}=&\frac{Z_0}{4k_0}\int_{x_n-\Delta x/2}^{x_n+\Delta x/2}\left(k_0^2+\frac{\partial^2}{\partial x^2}\right)H_0^{(2)}(k_0|x-x'|)dx' \\
+    \label{eq:eq915}
+    V_m=&E^{inc}_s(x_m)
+\end{align}
+其中$\Delta x$是单元的宽度。若使用一阶基函数和一阶检验函数，可以获得更高的精度。使用一阶基函数将电流展开为
+\begin{align}
+    \label{eq:eq916}
+    J_{s,t}^t(x')=\sum_{n=1}^{N-1}\Lambda_n(x')J_{t,n}
+\end{align}
+式中$\Lambda_n$为三角函数，如图\ref{fig:fig66}所示：
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{三角形基函数示意图.PNG}
+    \caption{三角形基函数$\Lambda_n$示意图}
+    \label{fig:fig66}
+\end{figure}
+\\
+此展开式可确保条带边缘电流为零。使用相同的三角形函数作为检验函数，有
+\begin{align}
+    \label{eq:eq917}
+    \sum_{n=1}^{N-1}Z_{mn}J_{t,n}=V_m\qquad m=1,2,\cdots,N-1
+\end{align}
+式中，
+\begin{align}
+    \label{eq:eq918}
+    Z_{mn}=&\frac{Z_0}{4k_0}\int_{x_{m-1}}^{x_{m+1}}\Lambda_m(x)\int_{x_{n-1}}^{x_{n+1}}\Lambda_n(x')\left(k_0^2+\frac{\partial^2}{\partial x^2}\right)H_0^{(2)}(k_0|x-x'|)dx'dx \nonumber \\
+          =&\frac{Z_0}{4k_0}\int_{x_{m-1}}^{x_{m+1}}\int_{x_{n-1}}^{x_{n+1}}\left(k_0^2\Lambda_m\Lambda_n-\frac{d\Lambda_m}{dx}\frac{d\Lambda_n}{dx'}\right)H_0^{(2)}(k_0|x-x'|)dx'dx \\
+    \label{eq:eq919}
+    V_m=&\int_{x_{m-1}}^{x_{m+1}}\Lambda_m(x)E_x^{inc}(x)dx
+\end{align}
+上式中，被积函数奇异性减弱，以此进行数值积分可以得到更高的精度。
+\subsubsection{均匀介质柱体的散射}
+考虑可透过电磁波的均匀介质柱体，其内部场满足亥姆霍兹方程
+\begin{align}
+    \label{eq:eq920}
+    \nabla^2\varphi(\vec{\rho})+k_i^2\varphi(\vec{\rho})=0\qquad\vec{\rho}\in\Omega_O
+\end{align}
+式中，$k_i=k_0\sqrt{\mu_r\epsilon_r}$，$\mu_r$和$\epsilon_r$是介质的相对磁导率和相对介电常数。方程两边同时乘以格林函数
+\begin{align}
+    \label{eq:eq921}
+    G_i(\vec{\rho},\vec{\rho}')=\frac{1}{4j}H_0^{(2)}(k_i|x-x'|)
+\end{align}
+该格林函数满足亥姆霍兹方程
+\begin{align}
+    \label{eq:eq922}
+    \nabla^2G_i(\vec{\rho},\vec{\rho}')+k_i^2G_i(\vec{\rho},\vec{\rho}')=-\delta(\vec{\rho}-\vec{\rho}')\qquad\vec{\rho}\in\Omega_O
+\end{align}
+在$\Omega_O$区域上积分，可得
+\begin{align}
+    \label{eq:eq923}
+    \oint_{\Gamma_O}\left[G_i(\vec{\rho},\vec{\rho}')\frac{\partial \varphi(\vec{\rho}')}{\partial n'}-\varphi(\vec{\rho}')\frac{\partial G_i(\vec{\rho},\vec{\rho}')}{\partial n'}\right]d\Gamma'
+    =\left\{
+        \begin{matrix}
+            0 & \vec{\rho}\in\Omega_{\infty} \\
+             \varphi(\vec{\rho}) & \vec{\rho}\in\Omega_{O} \\
+        \end{matrix}
+    \right.
+\end{align}
+应用到边界$\Gamma_O$上，可得
+\begin{align}
+    \label{eq:eq924}
+    \bbint_{\Gamma_O}\left[G_i(\vec{\rho},\vec{\rho}')\frac{\partial \varphi(\vec{\rho}')}{\partial n'}-\varphi(\vec{\rho}')\frac{\partial G_i(\vec{\rho},\vec{\rho}')}{\partial n'}\right]d\Gamma'=\frac{1}{2}\varphi(\vec{\rho})\qquad\vec{\rho}\in\Gamma_O
+\end{align}
+
+对于TM极化入射的情形，$\varphi=E_z$，式\ref{eq:eq893}变为
+\begin{align}
+    \label{eq:eq925}
+    \frac{1}{2}E_z(\vec{\rho})-\bbint_{\Gamma_O}\left[E_z(\vec{\rho}')\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n'}-jk_0Z_0G_0(\vec{\rho},\vec{\rho}')H_t(\vec{\rho}')\right]d\Gamma'=E_z^{inc}(\vec{\rho})\qquad\vec{\rho}\in\Gamma_O
+\end{align}
+式\ref{eq:eq924}变为
+\begin{align}
+    \label{eq:eq926}
+    \frac{1}{2}E_z(\vec{\rho})+\bbint_{\Gamma_O}\left[E_z(\vec{\rho}')\frac{\partial G_i(\vec{\rho},\vec{\rho}')}{\partial n'}-jk_0Z_0G_0(\vec{\rho},\vec{\rho}')H_t(\vec{\rho}')\right]d\Gamma'=0\qquad\vec{\rho}\in\Gamma_O
+\end{align}
+由于电场和磁场切向分量的连续性，上述两个等式中的$E_z$和$H_t$相同，联立上述两个等式，可得$\Gamma_O$上的$E_z$和$H_t$。\par
+对于TE极化入射的情形，$\varphi=H_z$，式\ref{eq:eq893}变为
+\begin{align}
+    \label{eq:eq927}
+    \frac{1}{2}H_z(\vec{\rho})-\bbint_{\Gamma_O}\left[H_z(\vec{\rho}')\frac{\partial G_0(\vec{\rho},\vec{\rho}')}{\partial n'}-jk_0Z_0G_0(\vec{\rho},\vec{\rho}')E_t(\vec{\rho}')\right]d\Gamma'=H_z^{inc}(\vec{\rho})\qquad\vec{\rho}\in\Gamma_O
+\end{align}
+式\ref{eq:eq924}变为
+\begin{align}
+    \label{eq:eq928}
+    \frac{1}{2}E_z(\vec{\rho})+\bbint_{\Gamma_O}\left[H_z(\vec{\rho}')\frac{\partial G_i(\vec{\rho},\vec{\rho}')}{\partial n'}-jk_0Z_0G_0(\vec{\rho},\vec{\rho}')E_t(\vec{\rho}')\right]d\Gamma'=0\qquad\vec{\rho}\in\Gamma_O
+\end{align}
+式中，$Y_0=1/Z_0$。由于电场和磁场切向分量的连续性，上述两个等式中的$E_t$和$H_z$相同，联立上述两个等式，可得$\Gamma_O$上的$E_t$和$H_z$。若采用脉冲基函数和点匹配方法，则其矩量法的解将直截了当。
+\subsection{三维分析}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\setcounter{subsection}{0}
+\numberwithin{equation}{subsection}
+\setcounter{equation}{0}
+\section*{\textsf{附录}}
+\subsection{Meep}
 \texttt{https://meep.readthedocs.io/en/latest/} \\
 \textbf{\color{blue}{Meep仿真的麦克斯韦方程}}：
 \begin{align}
